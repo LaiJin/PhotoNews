@@ -1,0 +1,11 @@
+<div style="background: #F5F5F5; width: 659px; padding: 50px; margin: 100px auto auto auto">
+  <%= form_for @image_news, :url =>{:action => 'upload'}, :html => {:multipart => true} do |f|  %>
+      <p>请选择图片：</p>
+      <%= f.file_field :image%>
+      <div style="margin: 20px auto 20px auto">
+      <p style="font-size: 20px">内容：</p>
+      <%= f.text_field :content, :class => 'form-control'%>
+      </div>
+      <%= f.submit '上传' %>
+  <% end %>
+</div>
