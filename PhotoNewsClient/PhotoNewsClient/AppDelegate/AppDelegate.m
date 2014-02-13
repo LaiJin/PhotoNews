@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "OCMapperConfig.h"
 #import "PhotoNewsShowViewController.h"
 
 @implementation AppDelegate
@@ -15,6 +16,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [OCMapperConfig configure];
+    
     PhotoNewsShowViewController *photoNewsShowViewController = [[PhotoNewsShowViewController alloc] init];
     self.window.rootViewController = photoNewsShowViewController;
     [self.window makeKeyAndVisible];

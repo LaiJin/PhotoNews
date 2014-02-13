@@ -7,8 +7,12 @@
 //
 
 #import "PhotoNewsShowViewController.h"
+#import "LibraryAPI.h"
 
 @interface PhotoNewsShowViewController ()
+{
+    LibraryAPI  *libraryApI;
+}
 
 @end
 
@@ -36,43 +40,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSURL *url = [NSURL URLWithString: @"http://0.0.0.0:3000/image_news_data.json"];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setDelegate:self];
-    [request startAsynchronous];
-}
-
-
-#pragma mark -
-#pragma mark ASIHTTPRequestDelegate
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-    
-    NSData *responseData = [request responseData];
-//    NSLog(@"%@", responseData);
-//    UIImage *image = [UIImage imageWithData:responseData];
-    
-//    NSLog(@"%@", image);
-//    [photoNewsShowView addImageToimageView:image];
-    NSDictionary *jsonDictionaries = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
-    
-//    NSLog(@"%@", responseData);
-     NSLog(@"%@", jsonDictionaries);
-//    UIImage *image = [UIImage imageWithData: [jsonDictionaries objectForKey:@"title"]];
-//    NSLog(@"%@", image);
-//    NSArray *photoNewsData = [jsonDictionary objectForKey:@"data"];
-//    NSLog(@"%@", photoNewsData);
-//    NSLog(@"%i", [photoNewsData count]);
+    libraryApI = [[LibraryAPI alloc] init];
+    [libraryApI getImageNews];
     
 }
-
-- (void)requestFailed :(ASIHTTPRequest *)request
-{
-    NSError *error = [request error];
-    NSLog(@"%@", error);
-}
-
 
 - (void)didReceiveMemoryWarning
 {

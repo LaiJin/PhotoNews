@@ -11,7 +11,6 @@
 #import "ASIHTTPRequest.h"
 
 @interface PhotoNewsShowViewController : UIViewController<ASIHTTPRequestDelegate> {
-    
     PhotoNewsShowView *photoNewsShowView;
 }
 @end
