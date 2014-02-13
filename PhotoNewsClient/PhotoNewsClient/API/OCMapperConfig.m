@@ -19,10 +19,10 @@
 {
     ObjectInstanceProvider *instanceProvider = [[ObjectInstanceProvider alloc] init];
 	InCodeMappingProvider *inCodeMappingProvider = [[InCodeMappingProvider alloc] init];
-    CommonLoggingProvider *commonLoggingProvider = [[CommonLoggingProvider alloc] initWithLogLevel:LogLevelInfo];
+//    CommonLoggingProvider *commonLoggingProvider = [[CommonLoggingProvider alloc] initWithLogLevel:LogLevelInfo];
 	[[ObjectMapper sharedInstance] setInstanceProvider:instanceProvider];
 	[[ObjectMapper sharedInstance] setMappingProvider:inCodeMappingProvider];
-    [[ObjectMapper sharedInstance] setLoggingProvider:commonLoggingProvider];
+//    [[ObjectMapper sharedInstance] setLoggingProvider:commonLoggingProvider];
     [inCodeMappingProvider mapFromDictionaryKey:@"id" toPropertyKey:@"imageNews_id"forClass:[ImageNews class]];
 }
 

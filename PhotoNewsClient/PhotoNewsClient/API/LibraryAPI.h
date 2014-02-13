@@ -13,6 +13,8 @@
 
 + (LibraryAPI *)sharedInstance;
 
-- (void)getImageNews;
+- (void)requestServer;
+
+- (NSArray *)getImageNewsData;
 
 @end

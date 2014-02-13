@@ -11,21 +11,12 @@
 
 @interface PhotoNewsShowViewController ()
 {
-    LibraryAPI  *libraryApI;
+    NSArray *allImageNews;
 }
 
 @end
 
 @implementation PhotoNewsShowViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (id)init
 {
@@ -33,6 +24,9 @@
     if (self) {
         photoNewsShowView = [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 20.0, self.view.frame.size.width, self.view.frame.size.height - 80.0)];
         self.view = photoNewsShowView;
+        [[LibraryAPI sharedInstance] requestServer];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setAllImageNews)
+                                              name:@"parseComplete" object:nil];
     }
     return self;
 }
@@ -40,15 +34,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    libraryApI = [[LibraryAPI alloc] init];
-    [libraryApI getImageNews];
-    
+     NSLog(@"%@", allImageNews);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"%@", allImageNews);
+}
+
+- (void)setAllImageNews
+{
+    allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Dealloc
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"parseComplete" object:nil];
 }
 
 @end

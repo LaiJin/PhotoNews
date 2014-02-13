@@ -12,6 +12,8 @@
 #import "ASIHTTPRequest.h"
 #import "HTTPClient.h"
 #import "PersistenceManager.h"
+#import "ImageNews.h"
+#import "OCMapper.h"
 
 
 @interface LibraryAPI ()<ASIHTTPRequestDelegate>
@@ -47,7 +49,7 @@
 	return singleton;
 }
 
-- (void)getImageNews
+- (void)requestServer
 {
     if ([self isNetworkReachable]) {
         [httpClient getRequest:@"http://0.0.0.0:3000/image_news_data.json" requestDelegateImplementor:self];
@@ -56,9 +58,16 @@
     NSLog(@"请检查网络是否连接!");
 }
 
+- (NSArray *)getImageNewsData
+{
+    if ([self isNetworkReachable]) {
+        return [persistenceManager getImageNewsData];
+    }
+    return  [persistenceManager unarchiveImageNewsData];
+}
+
 
 #pragma mark - Private Method
-
 #pragma mark -isNetworkReachable
 - (BOOL)isNetworkReachable
 {
@@ -84,13 +93,18 @@
 }
 
 #pragma mark - ASIHTTPRequestDelegate
-
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    NSData *responseData = [request responseData];
-    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
-    NSArray *imageNewsData = [jsonDictionary objectForKey:@"data"];
+    NSData  *responseData = [request responseData];
+    NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
+    NSMutableArray *imageNewsData = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [jsonArray count]; i++) {
+        ImageNews *indexImageNews = [ImageNews objectFromDictionary:[jsonArray objectAtIndex:i]];
+        [imageNewsData addObject:indexImageNews];
+    }
     NSLog(@"%@", imageNewsData);
+    [persistenceManager saveImageNewsData:imageNewsData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"parseComplete" object:nil];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
