@@ -4,7 +4,7 @@
       <%= f.file_field :image%>
       <div style="margin: 20px auto 20px auto">
       <p style="font-size: 20px">内容：</p>
-      <%= f.text_field :content, :class => 'form-control'%>
+      <%= f.text_area :content, :class => 'form-control', :style => 'height: 200px'%>
       </div>
       <%= f.submit '上传' %>
   <% end %>
