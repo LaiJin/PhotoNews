@@ -32,6 +32,7 @@
 		DD30177518AC6BEA007FEE40 /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177418AC6BEA007FEE40 /* PersistenceManager.m */; };
 		DD30177818AC6C56007FEE40 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177718AC6C56007FEE40 /* LibraryAPI.m */; };
 		DD30177B18AC964E007FEE40 /* OCMapperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177A18AC964E007FEE40 /* OCMapperConfig.m */; };
+		DD6ABAFD18ADC16F0072BBA5 /* HorizontalScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6ABAFC18ADC16F0072BBA5 /* HorizontalScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		DD30177718AC6C56007FEE40 /* LibraryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryAPI.m; sourceTree = "<group>"; };
 		DD30177918AC964E007FEE40 /* OCMapperConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMapperConfig.h; sourceTree = "<group>"; };
 		DD30177A18AC964E007FEE40 /* OCMapperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMapperConfig.m; sourceTree = "<group>"; };
+		DD6ABAFB18ADC16F0072BBA5 /* HorizontalScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScrollView.h; sourceTree = "<group>"; };
+		DD6ABAFC18ADC16F0072BBA5 /* HorizontalScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +229,8 @@
 			children = (
 				9AFFEA2C18A9C4EE005D5574 /* PhotoNewsShowView.h */,
 				9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */,
+				DD6ABAFB18ADC16F0072BBA5 /* HorizontalScrollView.h */,
+				DD6ABAFC18ADC16F0072BBA5 /* HorizontalScrollView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				9AAF9BC118A8DF230032EC74 /* main.m in Sources */,
 				9AAF9BEF18A9B3F10032EC74 /* AppDelegate.m in Sources */,
 				DD30177218AC6BB3007FEE40 /* HTTPClient.m in Sources */,
+				DD6ABAFD18ADC16F0072BBA5 /* HorizontalScrollView.m in Sources */,
 				9AFFEA2B18A9C325005D5574 /* PhotoNewsShowViewController.m in Sources */,
 				DD30176F18AC62F4007FEE40 /* ImageNews.m in Sources */,
 				DD30177518AC6BEA007FEE40 /* PersistenceManager.m in Sources */,

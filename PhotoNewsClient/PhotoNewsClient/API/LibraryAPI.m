@@ -98,10 +98,15 @@
     NSData  *responseData = [request responseData];
     NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
     NSMutableArray *imageNewsData = [[NSMutableArray alloc] init];
-    for (int i = 0; i < [jsonArray count]; i++) {
-        ImageNews *indexImageNews = [ImageNews objectFromDictionary:[jsonArray objectAtIndex:i]];
+    for (NSMutableDictionary *imageNews in jsonArray) {
+        ImageNews *indexImageNews = [ImageNews objectFromDictionary:imageNews];
         [imageNewsData addObject:indexImageNews];
     }
+//    for (int i = 0; i < [jsonArray count]; i++) {
+//        ImageNews *indexImageNews = [ImageNews objectFromDictionary:[jsonArray objectAtIndex:i]];
+//        NSLog(@"%@", [[jsonArray objectAtIndex:i] superclass]);
+//        [imageNewsData addObject:indexImageNews];
+//    }
     NSLog(@"%@", imageNewsData);
     [persistenceManager saveImageNewsData:imageNewsData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"parseComplete" object:nil];

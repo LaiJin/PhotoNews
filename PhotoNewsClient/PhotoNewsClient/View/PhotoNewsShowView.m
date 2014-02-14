@@ -17,7 +17,7 @@
 @end
 
 @implementation PhotoNewsShowView
-@synthesize imageView = _imageView, newsInfoText = _newsInfoText;
+//@synthesize imageView = _imageView, newsInfoText = _newsInfoText;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -30,14 +30,12 @@
 }
 
 #pragma mark - public Method
-
 - (void)addImageToimageView:(UIImage *)image
 {
     self.imageView.image = image;
 }
 
 #pragma mark - Private Method
-
 - (void)addImageView
 {
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height / 2 )];

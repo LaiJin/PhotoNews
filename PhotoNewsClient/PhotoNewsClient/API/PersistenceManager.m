@@ -15,7 +15,7 @@
 @end
 
 @implementation PersistenceManager
-@synthesize imageNewsData = _imageNewsData;
+//@synthesize imageNewsData = _imageNewsData;
 
 #pragma mark - Initialization Method
 - (id)init
