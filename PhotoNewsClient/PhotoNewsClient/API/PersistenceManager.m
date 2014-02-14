@@ -51,6 +51,22 @@
     return nil;
 }
 
+#pragma mark -getImageFromlocal
+- (UIImage *)getImage:(NSString *)filename
+{
+    filename = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", filename];
+    NSData *data = [NSData dataWithContentsOfFile:filename];
+    return  [UIImage imageWithData:data];
+}
+
+#pragma mark -saveImage
+- (void)saveImage:(UIImage *)image filename:(NSString *)filename
+{
+    filename = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", filename];
+    NSData *data = UIImagePNGRepresentation(image);
+    [data writeToFile:filename atomically:YES];
+}
+
 
 #pragma mark - Private Method
 #pragma mark -getImageNewsDataFilePath

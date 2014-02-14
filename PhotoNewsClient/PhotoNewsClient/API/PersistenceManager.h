@@ -16,4 +16,8 @@
 
 - (NSArray *)unarchiveImageNewsData;
 
+- (UIImage *)getImage:(NSString *)filename;
+
+- (void)saveImage:(UIImage *)image filename:(NSString *)filename;
+
 @end

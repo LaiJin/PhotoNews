@@ -25,10 +25,6 @@
 {
     self = [super init];
     if (self) {
-//        photoNewsShowView = [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 20.0, self.view.frame.size.width, self.view.frame.size.height - 80.0)];
-//        self.view = photoNewsShowView;
-        scrollView = [[HorizontalScrollView alloc] initWithFrame:CGRectMake(0, 0, 900, 1000)];
-        self.view = scrollView;
         [[LibraryAPI sharedInstance] requestServer];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setAllImageNews)
                                               name:@"parseComplete" object:nil];
@@ -50,6 +46,9 @@
 - (void)setAllImageNews
 {
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
+    scrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.frame];
+    scrollView.delegate = self;
+    self.view = scrollView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,13 +59,15 @@
 #pragma mark - HorizontalScrollViewDelegate
 - (NSInteger)numberOfViewsForHorizontalScrollView:(HorizontalScrollView *)scrollView
 {
+    NSLog(@"%i", [allImageNews count]);
     return [allImageNews count];
 }
 
 - (UIView *)horziontalScrollView:(HorizontalScrollView *)scrollView viewAtIndex:(int)index
 {
     ImageNews *indexImageNews = [allImageNews objectAtIndex:index];
-    return nil;
+    CGRect viewFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 20.0, self.view.frame.size.width, self.view.frame.size.height - 80.0);
+    return [[PhotoNewsShowView alloc] initWithFrame:viewFrame newsImageUrl:indexImageNews.image_url newsContent:indexImageNews.content];
 }
 
 #pragma mark - Dealloc

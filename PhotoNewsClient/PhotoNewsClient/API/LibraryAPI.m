@@ -32,6 +32,7 @@
     if (self) {
         httpClient = [[HTTPClient alloc] init];
         persistenceManager = [[PersistenceManager alloc] init];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImage:) name:@"DownloadImageNotification" object:nil];
     }
     return self;
 }
@@ -92,6 +93,27 @@
     return (isReachable && !needsConnection) ? YES : NO;
 }
 
+#pragma mark -downloadImage
+- (void)downloadImage:(NSNotification *)notification
+{
+    UIImageView *imgaeView = notification.userInfo[@"imageView"];
+    NSString *imageUrl = notification.userInfo[@"imageUrl"];
+    imgaeView.image = [persistenceManager getImage:[imageUrl lastPathComponent]];
+    
+    if (imgaeView.image == nil) {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *imgae = [httpClient downloadImage:imageUrl];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                imgaeView.image = imgae;
+                
+                [persistenceManager saveImage:imgae filename:[imageUrl lastPathComponent]];
+            });
+        });
+    }
+}
+
+
 #pragma mark - ASIHTTPRequestDelegate
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
@@ -102,7 +124,6 @@
         ImageNews *indexImageNews = [ImageNews objectFromDictionary:imageNews];
         [imageNewsData addObject:indexImageNews];
     }
-    NSLog(@"%@", imageNewsData);
     [persistenceManager saveImageNewsData:imageNewsData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"parseComplete" object:nil];
 }
@@ -115,6 +136,13 @@
         return;
     }
     NSLog(@"请检查网络是否连接!");
+}
+
+#pragma mark -
+#pragma mark Dealloc
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @interface PhotoNewsShowView : UIView
 
-- (void)addImageToimageView: (UIImage *)image;
+- (id)initWithFrame:(CGRect)frame newsImageUrl:(NSString *)newsImageUrl newsContent:(NSString *)newsContent;
 
 @end

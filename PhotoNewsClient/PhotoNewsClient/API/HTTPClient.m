@@ -21,4 +21,10 @@
     [request startAsynchronous];
 }
 
+- (UIImage*)downloadImage:(NSString*)url
+{
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    return [UIImage imageWithData:data];
+}
+
 @end

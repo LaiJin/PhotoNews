@@ -12,4 +12,6 @@
 
 - (void)getRequest:(NSString *)url  requestDelegateImplementor :(id)implementor;
 
+- (UIImage*)downloadImage:(NSString*)url;
+
 @end
