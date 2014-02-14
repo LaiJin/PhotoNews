@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class HorizontalScrollView;
+
+@protocol HorizontalScrollViewDelegate <NSObject>
+
+- (NSInteger)numberOfViewsForHorizontalScrollView:(HorizontalScrollView *)scrollView;
+
+- (UIView *)horziontalScrollView:(HorizontalScrollView *)scrollView viewAtIndex:(int)index;
+
+@end
+
 @interface HorizontalScrollView : UIView
 
-@property(strong, readonly)UIScrollView *scrollView;
+//@property(nonatomic, readonly)UIScrollView *scrollView;
+@property(weak,  nonatomic)id<HorizontalScrollViewDelegate>delegate;
+
+- (void)reload;
 
 @end

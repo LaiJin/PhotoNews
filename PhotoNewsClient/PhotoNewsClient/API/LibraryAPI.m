@@ -102,11 +102,6 @@
         ImageNews *indexImageNews = [ImageNews objectFromDictionary:imageNews];
         [imageNewsData addObject:indexImageNews];
     }
-//    for (int i = 0; i < [jsonArray count]; i++) {
-//        ImageNews *indexImageNews = [ImageNews objectFromDictionary:[jsonArray objectAtIndex:i]];
-//        NSLog(@"%@", [[jsonArray objectAtIndex:i] superclass]);
-//        [imageNewsData addObject:indexImageNews];
-//    }
     NSLog(@"%@", imageNewsData);
     [persistenceManager saveImageNewsData:imageNewsData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"parseComplete" object:nil];
