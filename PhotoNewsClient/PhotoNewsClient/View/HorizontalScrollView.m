@@ -28,6 +28,7 @@
         self.scrollView.contentMode = UIViewContentModeCenter;
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.showsVerticalScrollIndicator   = NO;
+        self.scrollView.backgroundColor = [UIColor blueColor];
         self.scrollView.delegate = self;
         self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame), 0);
         self.scrollView.pagingEnabled = YES;// 实现分页显示
