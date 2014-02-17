@@ -30,8 +30,8 @@
         self.scrollView.showsVerticalScrollIndicator   = NO;
         self.scrollView.backgroundColor = [UIColor blueColor];
         self.scrollView.delegate = self;
-        self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame), 0);
-        self.scrollView.pagingEnabled = YES;// 实现分页显示
+//        self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame), 0);
+        self.scrollView.pagingEnabled = YES;// 实现分页显示''''
         [self addSubview:_scrollView];
     }
     return self;
@@ -63,7 +63,7 @@
         view.frame = rightRect;
         [self.scrollView addSubview:view];
     }
-    [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width, 0)];
+//    [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width, 0)];
 }
 
 //#pragma mark - UIScrollViewDelegate
