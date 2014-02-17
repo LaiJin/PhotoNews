@@ -16,7 +16,6 @@
 
 @implementation HorizontalScrollView
 
-#pragma mark -
 #pragma mark -Initialization Method
 - (id)initWithFrame:(CGRect)frame
 {
@@ -30,14 +29,13 @@
         self.scrollView.showsVerticalScrollIndicator   = NO;
         self.scrollView.backgroundColor = [UIColor blueColor];
         self.scrollView.delegate = self;
-//        self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame), 0);
         self.scrollView.pagingEnabled = YES;// 实现分页显示''''
         [self addSubview:_scrollView];
     }
     return self;
 }
 
-#pragma mark - Overwrite Method
+#pragma mark -Overwrite Method
 - (void)didMoveToSuperview
 {
     [self reload];
@@ -52,6 +50,13 @@
     [self.scrollView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [obj removeFromSuperview];
     }];
+    [self addShownViewsOnScrollView];
+}
+
+#pragma mark - Private Methods
+#pragma mark -addShowViewsOnScrollView Method
+- (void)addShownViewsOnScrollView
+{
     NSInteger counter = 0;
     NSInteger viewsCount = [self.delegate numberOfViewsForHorizontalScrollView:self];
     self.scrollView.contentSize = CGSizeMake(viewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));// 控制显示页面数量
@@ -63,7 +68,7 @@
         view.frame = rightRect;
         [self.scrollView addSubview:view];
     }
-//    [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width, 0)];
+    //    [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width, 0) animated:YES]; //控制scrollView开始显示的位置
 }
 
 //#pragma mark - UIScrollViewDelegate
