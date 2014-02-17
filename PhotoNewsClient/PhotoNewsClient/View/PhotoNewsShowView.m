@@ -17,7 +17,6 @@
 @end
 
 @implementation PhotoNewsShowView
-//@synthesize imageView = _imageView, newsInfoText = _newsInfoText;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -32,7 +31,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         [self configureImageView];
         [self configureTextFiled:newsContent];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"DownloadImageNotification" object:self userInfo:@{@"imageView":_imageView,@"imageUrl":newsImageUrl}];
@@ -44,7 +42,7 @@
 #pragma mark -configureImageView
 - (void)configureImageView
 {
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height / 2 )];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2.5 )];
     self.imageView.backgroundColor = [UIColor redColor];
     [self addSubview:_imageView];
 }
@@ -52,7 +50,7 @@
 #pragma mark -configureTextFiled
 - (void)configureTextFiled:(NSString *)newsContent
 {
-    self.newsInfoText = [[UITextField alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height / 2 + 20.0, self.frame.size.width, self.frame.size.height / 2)];
+    self.newsInfoText = [[UITextField alloc] initWithFrame:CGRectMake(0, self.frame.size.height / 2.5 + 20.0, self.frame.size.width, self.frame.size.height / 2.5)];
     self.newsInfoText.text = newsContent;
     self.newsInfoText.borderStyle = UITextBorderStyleRoundedRect;
     self.newsInfoText.textAlignment = NSTextAlignmentCenter;

@@ -20,9 +20,11 @@
 
 @interface HorizontalScrollView : UIView
 
-//@property(nonatomic, readonly)UIScrollView *scrollView;
+@property(nonatomic, readonly)UIScrollView *scrollView;
 @property(weak,  nonatomic)id<HorizontalScrollViewDelegate>delegate;
 
 - (void)reload;
+
+- (id)initWithFrame:(CGRect)frame barButtonTarget:(id)target;
 
 @end

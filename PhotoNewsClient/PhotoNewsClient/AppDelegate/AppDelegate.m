@@ -10,6 +10,7 @@
 #import "OCMapperConfig.h"
 //#import "LibraryAPI.h"
 #import "PhotoNewsShowViewController.h"
+#import "PhotoNewsListViewController.h"
 
 @implementation AppDelegate
 
@@ -24,8 +25,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [OCMapperConfig configure];
-    PhotoNewsShowViewController *photoNewsShowViewController = [[PhotoNewsShowViewController alloc] init];
-    self.window.rootViewController = photoNewsShowViewController;
+    UIViewController *centerViewController = [[PhotoNewsShowViewController alloc] init];
+    UIViewController *rightViewController = [[PhotoNewsListViewController alloc] init];
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController: centerViewController rightDrawerViewController:rightViewController];
+    [self.drawerController setMaximumRightDrawerWidth:320.0];
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    self.window.rootViewController = self.drawerController;
     [self.window makeKeyAndVisible];
     return YES;
 }

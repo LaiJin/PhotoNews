@@ -10,10 +10,13 @@
 #import "LibraryAPI.h"
 #import "HorizontalScrollView.h"
 #import "ImageNews.h"
+#import "PhotoNewsShowView.h"
+#import "MMDrawerBarButtonItem.h"
+#import "UIViewController+MMDrawerController.h"
 
 @interface PhotoNewsShowViewController ()<HorizontalScrollViewDelegate>
 {
-    HorizontalScrollView *scrollView;
+    HorizontalScrollView *horizontalScrollView;
     NSArray *allImageNews;
 }
 
@@ -26,7 +29,7 @@
     self = [super init];
     if (self) {
         [[LibraryAPI sharedInstance] requestServer];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setAllImageNews)
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupScrollView)
                                               name:@"parseComplete" object:nil];
     }
     return self;
@@ -35,20 +38,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     NSLog(@"%@", allImageNews);
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"%@", allImageNews);
+    [super viewDidAppear:animated];
 }
 
-- (void)setAllImageNews
+#pragma mark - Private Methods
+#pragma mark -setupScrollView
+- (void)setupScrollView
 {
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
-    scrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.frame];
-    scrollView.delegate = self;
-    self.view = scrollView;
+    horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
+    horizontalScrollView.delegate = self;
+    [self.view addSubview: horizontalScrollView];
+}
+
+#pragma mark -rightMenuButtonAction
+- (void)rightDrawerButtonPress
+{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,15 +69,14 @@
 #pragma mark - HorizontalScrollViewDelegate
 - (NSInteger)numberOfViewsForHorizontalScrollView:(HorizontalScrollView *)scrollView
 {
-    NSLog(@"%i", [allImageNews count]);
+//    NSLog(@"%i", [allImageNews count]);
     return [allImageNews count];
 }
 
 - (UIView *)horziontalScrollView:(HorizontalScrollView *)scrollView viewAtIndex:(int)index
 {
     ImageNews *indexImageNews = [allImageNews objectAtIndex:index];
-    CGRect viewFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 20.0, self.view.frame.size.width, self.view.frame.size.height - 80.0);
-    return [[PhotoNewsShowView alloc] initWithFrame:viewFrame newsImageUrl:indexImageNews.image_url newsContent:indexImageNews.content];
+    return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) newsImageUrl:indexImageNews.image_url newsContent:indexImageNews.content];
 }
 
 #pragma mark - Dealloc

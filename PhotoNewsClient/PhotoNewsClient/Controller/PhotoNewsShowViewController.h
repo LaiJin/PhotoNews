@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotoNewsShowView.h"
-#import "ASIHTTPRequest.h"
 
 @interface PhotoNewsShowViewController : UIViewController
 

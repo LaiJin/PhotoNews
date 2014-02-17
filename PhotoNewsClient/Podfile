@@ -1,3 +1,7 @@
-platform :ios
+platform :ios,'7.0'
 pod 'ASIHTTPRequest', '~> 1.8.1'
 pod 'OCMapper', '~> 1.0.1'
+pod 'EGOImageLoading', '~> 0.0.1'
+pod 'EGOCache', '~> 2.0'
+pod 'EGOTableViewPullRefresh',:git => 'https://github.com/aiyuelian/EGOTableViewPullRefresh'
+pod 'MMDrawerController', '~> 0.5.1'

@@ -7,10 +7,12 @@
 //
 
 #import "HorizontalScrollView.h"
+#import "MMDrawerBarButtonItem.h"
 
 @interface HorizontalScrollView ()<UIScrollViewDelegate>
 
 @property(strong, nonatomic)UIScrollView *scrollView;
+@property(strong, nonatomic)UIToolbar *toolbar;
 
 @end
 
@@ -21,16 +23,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.autoresizesSubviews = YES;
-        self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        self.scrollView.autoresizingMask = 0xFF;
-        self.scrollView.contentMode = UIViewContentModeCenter;
-        self.scrollView.showsHorizontalScrollIndicator = NO;
-        self.scrollView.showsVerticalScrollIndicator   = NO;
-        self.scrollView.backgroundColor = [UIColor blueColor];
-        self.scrollView.delegate = self;
-        self.scrollView.pagingEnabled = YES;// 实现分页显示''''
-        [self addSubview:_scrollView];
     }
     return self;
 }
@@ -53,6 +45,16 @@
     [self addShownViewsOnScrollView];
 }
 
+- (id)initWithFrame:(CGRect)frame barButtonTarget:(id)target
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self configureToolBar:target];
+        [self configureScrollView];
+    }
+    return self;
+}
+
 #pragma mark - Private Methods
 #pragma mark -addShowViewsOnScrollView Method
 - (void)addShownViewsOnScrollView
@@ -68,7 +70,33 @@
         view.frame = rightRect;
         [self.scrollView addSubview:view];
     }
-    //    [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width, 0) animated:YES]; //控制scrollView开始显示的位置
+//    [self.scrollView setContentOffset:CGPointMake(0, 44.0) animated:YES]; //控制scrollView开始显示的位置
+}
+
+#pragma mark -configureToolBar
+- (void)configureToolBar:(id)target
+{
+    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 64.0)];
+    MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:target action:@selector(rightDrawerButtonPress)];
+    UIBarButtonItem *spanButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    NSArray *items = [[NSArray alloc] initWithObjects:spanButtonItem, rightDrawerButton, nil];
+    [_toolbar setItems: items];
+    [self addSubview:_toolbar];
+}
+
+#pragma mark -configureScrollView
+- (void)configureScrollView
+{
+    //        self.autoresizesSubviews = YES;
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64.0, self.bounds.size.width, self.bounds.size.height - 64.0)];
+    //        self.scrollView.autoresizingMask = 0xFF;
+    //        self.scrollView.contentMode = UIViewContentModeCenter;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator   = NO;
+    self.scrollView.backgroundColor = [UIColor blueColor];
+    self.scrollView.delegate = self;
+    self.scrollView.pagingEnabled = YES;// 实现分页显示''''
+    [self addSubview:_scrollView];
 }
 
 //#pragma mark - UIScrollViewDelegate
