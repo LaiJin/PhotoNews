@@ -11,7 +11,6 @@
 #import "HorizontalScrollView.h"
 #import "ImageNews.h"
 #import "PhotoNewsShowView.h"
-#import "MMDrawerBarButtonItem.h"
 #import "UIViewController+MMDrawerController.h"
 
 @interface PhotoNewsShowViewController ()<HorizontalScrollViewDelegate>
