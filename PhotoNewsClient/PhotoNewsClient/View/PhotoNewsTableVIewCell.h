@@ -10,4 +10,8 @@
 
 @interface PhotoNewsTableVIewCell : UITableViewCell
 
+- (void)setImageViewUrl:(NSString *)url;
+
+- (void)setTextFiledContent:(NSString *)content;
+
 @end

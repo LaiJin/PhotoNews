@@ -32,6 +32,8 @@
 		DD30177518AC6BEA007FEE40 /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177418AC6BEA007FEE40 /* PersistenceManager.m */; };
 		DD30177818AC6C56007FEE40 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177718AC6C56007FEE40 /* LibraryAPI.m */; };
 		DD30177B18AC964E007FEE40 /* OCMapperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177A18AC964E007FEE40 /* OCMapperConfig.m */; };
+		DD4E410418B2EE4D005AC6D0 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4E410318B2EE4D005AC6D0 /* loading.png */; };
+		DD4E410618B2F36E005AC6D0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4E410518B2F36E005AC6D0 /* placeholder.png */; };
 		DD67257218B1BB4900155BAC /* PhotoNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD67257118B1BB4900155BAC /* PhotoNewsListViewController.m */; };
 		DD67257518B212F400155BAC /* PhotoNewsTableVIewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD67257418B212F300155BAC /* PhotoNewsTableVIewCell.m */; };
 		DD6ABAFD18ADC16F0072BBA5 /* HorizontalScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6ABAFC18ADC16F0072BBA5 /* HorizontalScrollView.m */; };
@@ -73,7 +75,7 @@
 		9AAF9BEA18A9B3F10032EC74 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9AAF9BEB18A9B3F10032EC74 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9AFFEA2918A9C325005D5574 /* PhotoNewsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsShowViewController.h; sourceTree = "<group>"; };
-		9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoNewsShowViewController.m; path = ../Controller/PhotoNewsShowViewController.m; sourceTree = "<group>"; };
+		9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsShowViewController.m; sourceTree = "<group>"; };
 		9AFFEA2C18A9C4EE005D5574 /* PhotoNewsShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsShowView.h; sourceTree = "<group>"; };
 		9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsShowView.m; sourceTree = "<group>"; };
 		DD30176D18AC62F4007FEE40 /* ImageNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageNews.h; sourceTree = "<group>"; };
@@ -86,6 +88,8 @@
 		DD30177718AC6C56007FEE40 /* LibraryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryAPI.m; sourceTree = "<group>"; };
 		DD30177918AC964E007FEE40 /* OCMapperConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMapperConfig.h; sourceTree = "<group>"; };
 		DD30177A18AC964E007FEE40 /* OCMapperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMapperConfig.m; sourceTree = "<group>"; };
+		DD4E410318B2EE4D005AC6D0 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		DD4E410518B2F36E005AC6D0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		DD67257018B1BB4900155BAC /* PhotoNewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoNewsListViewController.h; path = PhotoNewsClient/Controller/PhotoNewsListViewController.h; sourceTree = SOURCE_ROOT; };
 		DD67257118B1BB4900155BAC /* PhotoNewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoNewsListViewController.m; path = PhotoNewsClient/Controller/PhotoNewsListViewController.m; sourceTree = SOURCE_ROOT; };
 		DD67257318B212F300155BAC /* PhotoNewsTableVIewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsTableVIewCell.h; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		9AAF9BBB18A8DF230032EC74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DD4E410218B2EE4D005AC6D0 /* Image */,
 				9AAF9BBC18A8DF230032EC74 /* PhotoNewsClient-Info.plist */,
 				9AAF9BBD18A8DF230032EC74 /* InfoPlist.strings */,
 				9AAF9BC018A8DF230032EC74 /* main.m */,
@@ -218,6 +223,7 @@
 				DD67257018B1BB4900155BAC /* PhotoNewsListViewController.h */,
 				DD67257118B1BB4900155BAC /* PhotoNewsListViewController.m */,
 				9AFFEA2918A9C325005D5574 /* PhotoNewsShowViewController.h */,
+				9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,7 +244,6 @@
 				9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */,
 				DD6ABAFB18ADC16F0072BBA5 /* HorizontalScrollView.h */,
 				DD6ABAFC18ADC16F0072BBA5 /* HorizontalScrollView.m */,
-				9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */,
 				DD67257318B212F300155BAC /* PhotoNewsTableVIewCell.h */,
 				DD67257418B212F300155BAC /* PhotoNewsTableVIewCell.m */,
 			);
@@ -258,6 +263,15 @@
 				DD30177A18AC964E007FEE40 /* OCMapperConfig.m */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		DD4E410218B2EE4D005AC6D0 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E410518B2F36E005AC6D0 /* placeholder.png */,
+				DD4E410318B2EE4D005AC6D0 /* loading.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +348,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AAF9BBF18A8DF230032EC74 /* InfoPlist.strings in Resources */,
+				DD4E410618B2F36E005AC6D0 /* placeholder.png in Resources */,
+				DD4E410418B2EE4D005AC6D0 /* loading.png in Resources */,
 				9AAF9BC718A8DF230032EC74 /* Default.png in Resources */,
 				9AAF9BC918A8DF230032EC74 /* Default@2x.png in Resources */,
 				9AAF9BCB18A8DF230032EC74 /* Default-568h@2x.png in Resources */,

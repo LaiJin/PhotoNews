@@ -7,8 +7,11 @@
 //
 
 #import "PhotoNewsListViewController.h"
+#import "UIViewController+MMDrawerController.h"
 #import "PullTableView.h"
 #import "LibraryAPI.h"
+#import "ImageNews.h"
+#import "PhotoNewsTableVIewCell.h"
 
 @interface PhotoNewsListViewController ()<UITableViewDataSource, UITableViewDelegate ,PullTableViewDelegate>
 {
@@ -72,10 +75,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *photoNewsCellIdentifier = @"photoNewsCellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:photoNewsCellIdentifier];
+    PhotoNewsTableVIewCell *cell = [tableView dequeueReusableCellWithIdentifier:photoNewsCellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:photoNewsCellIdentifier];
+        cell = [[PhotoNewsTableVIewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:photoNewsCellIdentifier];
     }
+    ImageNews *indexImageNews = allImageNews[indexPath.section];
+    [cell setTextFiledContent:indexImageNews.content];
+    [cell setImageViewUrl:indexImageNews.image_url];
     return cell;
 }
 
@@ -88,6 +94,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
 }
 
 #pragma mark - PullTableViewDelegate
