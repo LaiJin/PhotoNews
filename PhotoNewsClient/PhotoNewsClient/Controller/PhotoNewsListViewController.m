@@ -64,8 +64,10 @@
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
     count = allImageNews.count - allImageNews.count % kFirstShowNews;
     [photoNewsTableView reloadData];
-    [photoNewsTableView setPullLastRefreshDate:[NSDate date]];
-    [photoNewsTableView setPullTableIsRefreshing:NO];
+    if(photoNewsTableView.pullTableIsRefreshing) {
+        [photoNewsTableView setPullLastRefreshDate:[NSDate date]];
+        [photoNewsTableView setPullTableIsRefreshing:NO];
+    }
 }
 
 #pragma mark - Private Methods
