@@ -11,8 +11,8 @@
 
 @interface PhotoNewsTableVIewCell ()
 
-@property(strong, nonatomic) EGOImageView *imageView;
-@property(strong, nonatomic) UITextField *textFiled;
+@property (strong, nonatomic) EGOImageView *imageView;
+@property (strong, nonatomic) UITextField *textFiled;
 
 @end
 

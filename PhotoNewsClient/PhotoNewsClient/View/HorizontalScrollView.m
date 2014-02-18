@@ -11,8 +11,8 @@
 
 @interface HorizontalScrollView ()<UIScrollViewDelegate>
 
-@property(strong, nonatomic)UIScrollView *scrollView;
-@property(strong, nonatomic)UIToolbar *toolbar;
+@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIToolbar *toolbar;
 
 @end
 

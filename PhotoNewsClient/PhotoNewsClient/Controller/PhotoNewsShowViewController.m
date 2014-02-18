@@ -44,6 +44,12 @@
     [super viewDidAppear:animated];
 }
 
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
 #pragma mark - Private Methods
 #pragma mark -setupScrollView
 - (void)setupScrollView
@@ -58,11 +64,6 @@
 - (void)rightDrawerButtonPress
 {
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - HorizontalScrollViewDelegate

@@ -10,7 +10,7 @@
 
 @interface PersistenceManager ()
 
-@property(strong, nonatomic)NSMutableArray *imageNewsData;
+@property (strong, nonatomic) NSMutableArray *imageNewsData;
 
 @end
 

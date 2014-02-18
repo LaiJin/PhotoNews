@@ -17,9 +17,13 @@
 {
     PullTableView *photoNewsTableView;
     NSArray *allImageNews;
+    NSInteger displayNewsCount;
+    NSInteger count;
 }
 
 @end
+
+#define kFirstShowNews 6
 
 @implementation PhotoNewsListViewController
 
@@ -29,7 +33,9 @@
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPhotoNewsTableView)
                                                      name:@"parseComplete" object:nil];
+        displayNewsCount = kFirstShowNews;
         photoNewsTableView = [[PullTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
+        photoNewsTableView.pullDelegate = self;
         photoNewsTableView.delegate = self;
         photoNewsTableView.dataSource = self;
         [self.view addSubview:photoNewsTableView];
@@ -41,7 +47,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
 }
 
 - (void)viewDidLoad
@@ -52,7 +57,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)reloadPhotoNewsTableView
@@ -61,10 +65,25 @@
     [photoNewsTableView reloadData];
 }
 
+#pragma mark - Private Methods
+- (void)loadModePhotoNewsData
+{
+    if (allImageNews.count <= displayNewsCount)
+        displayNewsCount = allImageNews.count;
+    else if (count == displayNewsCount)
+        displayNewsCount = allImageNews.count;
+    else
+        displayNewsCount += kFirstShowNews;
+    [photoNewsTableView reloadData];
+    photoNewsTableView.pullTableIsLoadingMore = NO;
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [allImageNews count];
+    if (!allImageNews.count)
+        return 0;
+    return displayNewsCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -105,7 +124,7 @@
 
 - (void)pullTableViewDidTriggerLoadMore:(PullTableView*)pullTableView
 {
-    
+    [self performSelector:@selector(loadModePhotoNewsData) withObject:nil afterDelay:3.0f];
 }
 
 @end

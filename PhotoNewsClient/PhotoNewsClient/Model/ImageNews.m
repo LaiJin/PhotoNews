@@ -27,7 +27,6 @@
 {
     self = [super init];
     if (self) {
-        
         self.image_url = [aDecoder decodeObjectForKey:@"image_url"];
         self.imageNews_id = [aDecoder decodeObjectForKey:@"imageNews_id"];
         self.content = [aDecoder decodeObjectForKey:@"imageNews_content"];
@@ -37,7 +36,6 @@
         self.image_file_size = [aDecoder decodeObjectForKey:@"image_file_size"];
         self.image_updated_at = [aDecoder decodeObjectForKey:@"image_updated_at"];
         self.image_content_type = [aDecoder decodeObjectForKey:@"image_content_type"];
-        
     }
     return self;
 }
