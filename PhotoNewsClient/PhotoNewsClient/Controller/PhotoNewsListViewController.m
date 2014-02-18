@@ -62,7 +62,10 @@
 - (void)reloadPhotoNewsTableView
 {
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
+    count = allImageNews.count - allImageNews.count % kFirstShowNews;
     [photoNewsTableView reloadData];
+    [photoNewsTableView setPullLastRefreshDate:[NSDate date]];
+    [photoNewsTableView setPullTableIsRefreshing:NO];
 }
 
 #pragma mark - Private Methods
@@ -75,7 +78,12 @@
     else
         displayNewsCount += kFirstShowNews;
     [photoNewsTableView reloadData];
-    photoNewsTableView.pullTableIsLoadingMore = NO;
+    [photoNewsTableView setPullTableIsLoadingMore:NO];
+}
+
+- (void)refreshTableView
+{
+    [[LibraryAPI sharedInstance] requestServer];
 }
 
 #pragma mark - UITableViewDataSource
@@ -119,7 +127,8 @@
 #pragma mark - PullTableViewDelegate
 - (void)pullTableViewDidTriggerRefresh:(PullTableView*)pullTableView
 {
-    
+//    [self refreshTableView];
+    [self performSelector:@selector(refreshTableView) withObject:nil afterDelay:3.0f];
 }
 
 - (void)pullTableViewDidTriggerLoadMore:(PullTableView*)pullTableView
