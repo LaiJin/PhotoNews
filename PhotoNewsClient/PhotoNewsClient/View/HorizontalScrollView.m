@@ -16,6 +16,8 @@
 
 @end
 
+#define kToolbarHeight 64.0
+
 @implementation HorizontalScrollView
 
 #pragma mark -Initialization Method
@@ -76,10 +78,10 @@
 #pragma mark -configureToolBar
 - (void)configureToolBar:(id)target
 {
-    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 64.0)];
+    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, kToolbarHeight)];
     MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:target action:@selector(rightDrawerButtonPress)];
-    UIBarButtonItem *spanButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    NSArray *items = [[NSArray alloc] initWithObjects:spanButtonItem, rightDrawerButton, nil];
+    UIBarButtonItem *spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    NSArray *items = [[NSArray alloc] initWithObjects:spaceButtonItem, rightDrawerButton, nil];
     [_toolbar setItems: items];
     [self addSubview:_toolbar];
 }
@@ -88,7 +90,7 @@
 - (void)configureScrollView
 {
     //        self.autoresizesSubviews = YES;
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64.0, self.bounds.size.width, self.bounds.size.height - 64.0)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kToolbarHeight, self.bounds.size.width, self.bounds.size.height - kToolbarHeight)];
     //        self.scrollView.autoresizingMask = 0xFF;
     //        self.scrollView.contentMode = UIViewContentModeCenter;
     self.scrollView.showsHorizontalScrollIndicator = NO;

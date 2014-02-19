@@ -13,11 +13,11 @@
 
 #pragma mark - Public Method
 
-- (void)getRequest:(NSString *)url  requestDelegateImplementor :(id)implementor
+- (void)getRequest:(NSString *)url requestDelegateImplementor:(id)delegateImplementor
 {
     NSURL *requestUrl = [NSURL URLWithString:url];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:requestUrl];
-    [request setDelegate:implementor];
+    [request setDelegate:delegateImplementor];
     [request startAsynchronous];
 }
 

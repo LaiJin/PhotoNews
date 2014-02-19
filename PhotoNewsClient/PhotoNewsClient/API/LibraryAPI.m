@@ -127,13 +127,13 @@
     }
     [persistenceManager saveImageNewsData:imageNewsData];
     isRequestSuccess = YES;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"parseComplete" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"requestComplete" object:nil];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     isRequestSuccess = NO;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"parseComplete" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"requestComplete" object:nil];
     if ([self isNetworkReachable]) {
         NSLog(@"请检查网络是否连接!");
         return;

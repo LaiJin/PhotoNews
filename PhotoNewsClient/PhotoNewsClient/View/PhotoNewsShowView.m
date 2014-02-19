@@ -16,6 +16,9 @@
 
 @end
 
+#define kDenominator 2.5
+#define kSpace 20.0
+
 @implementation PhotoNewsShowView
 
 - (id)initWithFrame:(CGRect)frame
@@ -42,7 +45,7 @@
 #pragma mark -configureImageView
 - (void)configureImageView
 {
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2.5 )];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / kDenominator )];
     self.imageView.backgroundColor = [UIColor redColor];
     [self addSubview:_imageView];
 }
@@ -50,7 +53,7 @@
 #pragma mark -configureTextFiled
 - (void)configureTextFiled:(NSString *)newsContent
 {
-    self.newsInfoText = [[UITextField alloc] initWithFrame:CGRectMake(0, self.frame.size.height / 2.5 + 20.0, self.frame.size.width, self.frame.size.height / 2.5)];
+    self.newsInfoText = [[UITextField alloc] initWithFrame:CGRectMake(0, self.frame.size.height / kDenominator + kSpace, self.frame.size.width, self.frame.size.height / kDenominator)];
     self.newsInfoText.text = newsContent;
     self.newsInfoText.borderStyle = UITextBorderStyleRoundedRect;
     self.newsInfoText.textAlignment = NSTextAlignmentCenter;

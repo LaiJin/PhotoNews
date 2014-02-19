@@ -10,7 +10,7 @@
 
 @interface HTTPClient : NSObject
 
-- (void)getRequest:(NSString *)url  requestDelegateImplementor :(id)implementor;
+- (void)getRequest:(NSString *)url requestDelegateImplementor:(id)delegateImplementor;
 
 - (UIImage*)downloadImage:(NSString*)url;
 

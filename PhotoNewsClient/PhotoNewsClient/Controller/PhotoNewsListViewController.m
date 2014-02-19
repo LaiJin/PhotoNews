@@ -34,7 +34,7 @@
     self = [super init];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPhotoNewsTableView)
-                                                     name:@"parseComplete" object:nil];
+                                                     name:@"requestComplete" object:nil];
         displayNewsCount = kFirstShowNews;
         photoNewsTableView = [[PullTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
         photoNewsTableView.pullDelegate = self;
@@ -93,10 +93,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    if (!allImageNews.count)
-//        return 0;
-//    return displayNewsCount;
-    return  allImageNews.count == 0 ? 0 : displayNewsCount;
+    return  allImageNews.count == 0 ? allImageNews.count : displayNewsCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -132,7 +129,6 @@
 #pragma mark - PullTableViewDelegate
 - (void)pullTableViewDidTriggerRefresh:(PullTableView*)pullTableView
 {
-//    [self refreshTableView];
     [self performSelector:@selector(refreshTableView) withObject:nil afterDelay:3.0f];
 }
 

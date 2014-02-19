@@ -43,7 +43,7 @@
 #pragma mark -unarchiveImageNewsData
 - (NSArray *)unarchiveImageNewsData
 {
-    if ([[NSFileManager defaultManager] fileExistsAtPath: [self getImageNewsDataFilePath]]) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[self getImageNewsDataFilePath]]) {
         self.imageNewsData = [NSKeyedUnarchiver unarchiveObjectWithFile:[self getImageNewsDataFilePath]];
         return _imageNewsData;
     }

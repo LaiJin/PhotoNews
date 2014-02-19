@@ -28,7 +28,7 @@
     self = [super init];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadScrollView)
-                                                     name:@"parseComplete" object:nil];
+                                                     name:@"requestComplete" object:nil];
         [[LibraryAPI sharedInstance] requestServer];
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
         horizontalScrollView.delegate = self;
