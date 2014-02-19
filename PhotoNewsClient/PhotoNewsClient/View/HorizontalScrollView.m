@@ -95,7 +95,7 @@
     //        self.scrollView.contentMode = UIViewContentModeCenter;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator   = NO;
-    self.scrollView.backgroundColor = [UIColor blueColor];
+    self.scrollView.backgroundColor = [UIColor grayColor];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;// 实现分页显示''''
     [self addSubview:_scrollView];

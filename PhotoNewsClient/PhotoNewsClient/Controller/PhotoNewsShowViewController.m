@@ -82,7 +82,7 @@
 #pragma mark - Dealloc
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"parseComplete" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"requestComplete" object:nil];
 }
 
 @end

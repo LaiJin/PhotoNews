@@ -123,7 +123,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
+//    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
 }
 
 #pragma mark - PullTableViewDelegate
@@ -135,6 +135,12 @@
 - (void)pullTableViewDidTriggerLoadMore:(PullTableView*)pullTableView
 {
     [self performSelector:@selector(loadModePhotoNewsData) withObject:nil afterDelay:3.0f];
+}
+
+#pragma mark - Dealloc
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"requestComplete" object:nil];
 }
 
 @end
