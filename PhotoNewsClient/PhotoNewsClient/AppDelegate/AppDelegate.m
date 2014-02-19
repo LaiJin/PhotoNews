@@ -25,15 +25,20 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [OCMapperConfig configure];
+    [self configureDrawerController];
+    self.window.rootViewController = self.drawerController;
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (void)configureDrawerController
+{
     UIViewController *rightViewController = [[PhotoNewsListViewController alloc] init];
     UIViewController *centerViewController = [[PhotoNewsShowViewController alloc] init];
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController: centerViewController rightDrawerViewController:rightViewController];
     [self.drawerController setMaximumRightDrawerWidth:320.0];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-    self.window.rootViewController = self.drawerController;
-    [self.window makeKeyAndVisible];
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

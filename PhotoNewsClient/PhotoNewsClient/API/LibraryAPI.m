@@ -7,8 +7,8 @@
 //
 
 #import "LibraryAPI.h"
-#import <SystemConfiguration/SCNetworkReachability.h>
-#import <netinet/in.h>
+#import "SystemConfiguration/SCNetworkReachability.h"
+#import "netinet/in.h"
 #import "ASIHTTPRequest.h"
 #import "HTTPClient.h"
 #import "PersistenceManager.h"
@@ -62,7 +62,7 @@
 
 - (NSArray *)getImageNewsData
 {
-    if ([self isNetworkReachable] || isRequestSuccess) {
+    if ([self isNetworkReachable] && isRequestSuccess) {
         return [persistenceManager getImageNewsData];
     }
     return  [persistenceManager unarchiveImageNewsData];

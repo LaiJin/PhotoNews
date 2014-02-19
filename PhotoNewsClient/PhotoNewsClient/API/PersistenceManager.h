@@ -10,7 +10,7 @@
 
 @interface PersistenceManager : NSObject
 
-- (void)saveImageNewsData :(NSMutableArray *)imageNewsData;
+- (void)saveImageNewsData:(NSMutableArray *)imageNewsData;
 
 - (NSArray *)getImageNewsData;
 
