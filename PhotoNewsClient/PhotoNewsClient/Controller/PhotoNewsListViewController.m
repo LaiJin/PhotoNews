@@ -124,7 +124,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
+    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showSelectView" object:nil userInfo:@{@"index": [NSNumber numberWithInteger:indexPath.section]}];
 }
 
 #pragma mark - PullTableViewDelegate

@@ -29,6 +29,7 @@
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadScrollView:)
                                                      name:@"requestComplete" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSelectView:) name:@"showSelectView" object:nil];
         [[LibraryAPI sharedInstance] requestServer];
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
         horizontalScrollView.delegate = self;
@@ -60,6 +61,11 @@
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
     [horizontalScrollView reload];
     [notification.userInfo[@"alertView"] show];
+}
+
+- (void)showSelectView:(NSNotification *)notification
+{
+    [horizontalScrollView showIndexView: [notification.userInfo[@"index"] integerValue]];
 }
 
 

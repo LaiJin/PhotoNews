@@ -72,7 +72,12 @@
         view.frame = rightRect;
         [self.scrollView addSubview:view];
     }
-//    [self.scrollView setContentOffset:CGPointMake(0, 44.0) animated:YES]; //控制scrollView开始显示的位置
+//    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES]; //控制scrollView开始显示的位置
+}
+
+- (void)showIndexView:(NSInteger)index
+{
+    [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame) * index, 0) animated:NO];
 }
 
 #pragma mark -configureToolBar
