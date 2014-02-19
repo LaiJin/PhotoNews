@@ -27,7 +27,7 @@
 {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadScrollView)
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadScrollView:)
                                                      name:@"requestComplete" object:nil];
         [[LibraryAPI sharedInstance] requestServer];
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
@@ -55,11 +55,13 @@
 
 #pragma mark - Private Methods
 #pragma mark -reloadScrollView
-- (void)reloadScrollView
+- (void)reloadScrollView:(NSNotification *)notification
 {
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
     [horizontalScrollView reload];
+    [notification.userInfo[@"alertView"] show];
 }
+
 
 #pragma mark -rightMenuButtonAction
 - (void)rightDrawerButtonPress

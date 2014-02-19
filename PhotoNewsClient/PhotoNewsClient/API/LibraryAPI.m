@@ -114,6 +114,14 @@
     }
 }
 
+- (NSString *)getMessageContent
+{
+    if (![self isNetworkReachable]) {
+        return @"请检查网络是否连接!";
+    }
+    return  @"请求服务器失败!";
+    
+}
 
 #pragma mark - ASIHTTPRequestDelegate
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -127,19 +135,17 @@
     }
     [persistenceManager saveImageNewsData:imageNewsData];
     isRequestSuccess = YES;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"requestComplete" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"requestComplete" object:nil userInfo:nil];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     isRequestSuccess = NO;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"requestComplete" object:nil];
-    if ([self isNetworkReachable]) {
-        NSLog(@"请检查网络是否连接!");
-        return;
-    }
-    NSLog(@"请求服务器超时!");
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"请求失败" message:[self getMessageContent] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"requestComplete" object:nil userInfo:@{@"alertView": alertView}];
 }
+
+
 
 #pragma mark -
 #pragma mark Dealloc

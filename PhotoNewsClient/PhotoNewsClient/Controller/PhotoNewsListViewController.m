@@ -33,7 +33,7 @@
 {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPhotoNewsTableView)
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPhotoNewsTableView:)
                                                      name:@"requestComplete" object:nil];
         displayNewsCount = kFirstShowNews;
         photoNewsTableView = [[PullTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
@@ -61,11 +61,12 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)reloadPhotoNewsTableView
+- (void)reloadPhotoNewsTableView:(NSNotification *)notification
 {
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
     count = allImageNews.count - allImageNews.count % kFirstShowNews;
     [photoNewsTableView reloadData];
+    [notification.userInfo[@"alertView"] show];
     if(photoNewsTableView.pullTableIsRefreshing) {
         [photoNewsTableView setPullLastRefreshDate:[NSDate date]];
         [photoNewsTableView setPullTableIsRefreshing:NO];
