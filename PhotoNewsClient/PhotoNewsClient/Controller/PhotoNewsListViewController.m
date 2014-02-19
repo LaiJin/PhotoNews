@@ -24,6 +24,8 @@
 @end
 
 #define kFirstShowNews 6
+#define kRowHeight 120.0f
+#define kRowsInSection 1
 
 @implementation PhotoNewsListViewController
 
@@ -91,14 +93,12 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (!allImageNews.count)
-        return 0;
-    return displayNewsCount;
+    return  allImageNews.count == 0 ? allImageNews.count : displayNewsCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return kRowsInSection;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +117,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120.0;
+    return kRowHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

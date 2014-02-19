@@ -27,9 +27,12 @@
 {
     self = [super init];
     if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadScrollView)
+                                                     name:@"parseComplete" object:nil];
         [[LibraryAPI sharedInstance] requestServer];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupScrollView)
-                                              name:@"parseComplete" object:nil];
+        horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
+        horizontalScrollView.delegate = self;
+        [self.view addSubview: horizontalScrollView];
     }
     return self;
 }
@@ -51,13 +54,11 @@
 }
 
 #pragma mark - Private Methods
-#pragma mark -setupScrollView
-- (void)setupScrollView
+#pragma mark -reloadScrollView
+- (void)reloadScrollView
 {
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
-    horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
-    horizontalScrollView.delegate = self;
-    [self.view addSubview: horizontalScrollView];
+    [horizontalScrollView reload];
 }
 
 #pragma mark -rightMenuButtonAction
@@ -69,7 +70,6 @@
 #pragma mark - HorizontalScrollViewDelegate
 - (NSInteger)numberOfViewsForHorizontalScrollView:(HorizontalScrollView *)scrollView
 {
-//    NSLog(@"%i", [allImageNews count]);
     return [allImageNews count];
 }
 

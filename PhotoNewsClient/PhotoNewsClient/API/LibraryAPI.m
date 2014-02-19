@@ -52,11 +52,11 @@
 
 - (void)requestServer
 {
-    if ([self isNetworkReachable]) {
+//    if ([self isNetworkReachable]) {
         [httpClient getRequest:@"http://0.0.0.0:3000/image_news_data.json" requestDelegateImplementor:self];
-        return;
-    }
-    NSLog(@"请检查网络是否连接!");
+//        return;
+//    }
+//    NSLog(@"请检查网络是否连接!");
 }
 
 - (NSArray *)getImageNewsData
