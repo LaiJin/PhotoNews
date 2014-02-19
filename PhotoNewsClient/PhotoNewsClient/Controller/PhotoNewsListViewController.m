@@ -93,7 +93,10 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return  allImageNews.count == 0 ? allImageNews.count : displayNewsCount;
+//    if (!allImageNews.count)
+//        return 0;
+//    return displayNewsCount;
+    return  allImageNews.count == 0 ? 0 : displayNewsCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

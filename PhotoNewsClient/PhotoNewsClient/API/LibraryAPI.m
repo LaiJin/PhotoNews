@@ -20,6 +20,7 @@
 {
     HTTPClient  *httpClient;
     PersistenceManager *persistenceManager;
+    BOOL isRequestSuccess;
 }
 
 @end
@@ -61,7 +62,7 @@
 
 - (NSArray *)getImageNewsData
 {
-    if ([self isNetworkReachable]) {
+    if ([self isNetworkReachable] || isRequestSuccess) {
         return [persistenceManager getImageNewsData];
     }
     return  [persistenceManager unarchiveImageNewsData];
@@ -125,17 +126,19 @@
         [imageNewsData addObject:indexImageNews];
     }
     [persistenceManager saveImageNewsData:imageNewsData];
+    isRequestSuccess = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"parseComplete" object:nil];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-//    NSError *error = [request error];
+    isRequestSuccess = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"parseComplete" object:nil];
     if ([self isNetworkReachable]) {
-        NSLog(@"请求服务器超时!");
+        NSLog(@"请检查网络是否连接!");
         return;
     }
-    NSLog(@"请检查网络是否连接!");
+    NSLog(@"请求服务器超时!");
 }
 
 #pragma mark -
