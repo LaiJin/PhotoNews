@@ -13,10 +13,9 @@
 #import "PhotoNewsShowView.h"
 #import "UIViewController+MMDrawerController.h"
 
-@interface PhotoNewsShowViewController ()<HorizontalScrollViewDelegate>
+@interface PhotoNewsShowViewController ()
 {
     HorizontalScrollView *horizontalScrollView;
-    NSArray *allImageNews;
 }
 
 @end
@@ -32,7 +31,6 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSelectView:) name:@"showSelectView" object:nil];
         [[LibraryAPI sharedInstance] requestServer];
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
-        horizontalScrollView.delegate = self;
         [self.view addSubview: horizontalScrollView];
     }
     return self;
@@ -58,8 +56,14 @@
 #pragma mark -reloadScrollView
 - (void)reloadScrollView:(NSNotification *)notification
 {
-    allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
-    [horizontalScrollView reload];
+    NSArray * allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
+    horizontalScrollView.fetchViewAtIndex = ^UIView *(NSInteger pageIndex, HorizontalScrollView *scrollView){
+        ImageNews *indexImageNews = [allImageNews objectAtIndex:pageIndex];
+        return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) newsImageUrl:indexImageNews.image_url newsContent:indexImageNews.content];
+    };
+    horizontalScrollView.totalPagesCount = ^NSInteger(void){
+        return allImageNews.count;
+    };
     [notification.userInfo[@"alertView"] show];
 }
 
@@ -75,22 +79,11 @@
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
 
-#pragma mark - HorizontalScrollViewDelegate
-- (NSInteger)numberOfViewsForHorizontalScrollView:(HorizontalScrollView *)scrollView
-{
-    return [allImageNews count];
-}
-
-- (UIView *)horziontalScrollView:(HorizontalScrollView *)scrollView viewAtIndex:(int)index
-{
-    ImageNews *indexImageNews = [allImageNews objectAtIndex:index];
-    return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) newsImageUrl:indexImageNews.image_url newsContent:indexImageNews.content];
-}
-
 #pragma mark - Dealloc
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"requestComplete" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"showSelectView" object:nil];
 }
 
 @end

@@ -8,25 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class HorizontalScrollView;
-
-@protocol HorizontalScrollViewDelegate <NSObject>
-
-- (NSInteger)numberOfViewsForHorizontalScrollView:(HorizontalScrollView *)scrollView;
-
-- (UIView *)horziontalScrollView:(HorizontalScrollView *)scrollView viewAtIndex:(int)index;
-
-@end
-
 @interface HorizontalScrollView : UIView
 
-@property(nonatomic, readonly)UIScrollView *scrollView;
-@property(weak,  nonatomic)id<HorizontalScrollViewDelegate>delegate;
-
+@property (nonatomic, readonly) UIScrollView *scrollView;
+@property (nonatomic, copy) NSInteger (^totalPagesCount)(void);
+@property (nonatomic, copy) UIView *(^fetchViewAtIndex)(NSInteger viewIndex, HorizontalScrollView *scrollVivew);
 
 - (id)initWithFrame:(CGRect)frame barButtonTarget:(id)target;
-
-- (void)reload;
 
 - (void)showIndexView:(NSInteger)index;
 
