@@ -26,6 +26,8 @@
 #define kFirstShowNews 6
 #define kRowHeight 120.0f
 #define kRowsInSection 1
+#define kHeightForHeader 15.0
+#define kHeightForFooter 5.0
 
 @implementation PhotoNewsListViewController
 
@@ -119,6 +121,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return kRowHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return kHeightForHeader;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return kHeightForFooter;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
