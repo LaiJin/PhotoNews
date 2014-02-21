@@ -12,7 +12,7 @@
 @interface PhotoNewsShowView ()
 
 @property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) UITextView *newsInfoText;
+@property (strong, nonatomic) UITextView  *newsInfoText;
 
 @end
 
@@ -55,7 +55,8 @@
 {
     self.newsInfoText = [[UITextView alloc] initWithFrame:CGRectMake(0, self.frame.size.height / kDenominator, self.frame.size.width, self.frame.size.height / kDenominator)];
     [self.newsInfoText setText:newsContent];
-    [self.newsInfoText setFont:[UIFont systemFontOfSize:16.0]];
+    [self.newsInfoText setFont:[UIFont systemFontOfSize:14.0]];
+//    [self.newsInfoText.layer setCornerRadius:10];控制圆角
     [self.newsInfoText setEditable:NO];
     [self.newsInfoText setSelectable:NO];
     [self addSubview:_newsInfoText];

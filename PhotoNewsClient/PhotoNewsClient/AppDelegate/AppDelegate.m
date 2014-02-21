@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "OCMapperConfig.h"
-//#import "LibraryAPI.h"
 #import "PhotoNewsShowViewController.h"
 #import "PhotoNewsListViewController.h"
 
@@ -30,7 +29,7 @@
     UIViewController *rightViewController = [[PhotoNewsListViewController alloc] init];
     UIViewController *centerViewController = [[PhotoNewsShowViewController alloc] init];
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController: centerViewController rightDrawerViewController:rightViewController];
-    [self.drawerController setMaximumRightDrawerWidth:320.0];
+    [self.drawerController setMaximumRightDrawerWidth:self.window.frame.size.width];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
 }

@@ -23,7 +23,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
         self.imageView = [[EGOImageView alloc] initWithPlaceholderImage: [UIImage imageNamed:@"loading.png"]];
         self.imageView.frame = CGRectMake(10.0, 10.0, 80.0, 100.0);
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 10.0, 200.0, 100.0)];
