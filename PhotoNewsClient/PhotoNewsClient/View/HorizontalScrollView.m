@@ -69,7 +69,7 @@
 - (void)addShownViewsOnScrollView
 {
     NSInteger counter = 0;
-    self.scrollView.contentSize = CGSizeMake(_totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));// 控制显示页面数量
+    self.scrollView.contentSize = CGSizeMake(_totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
     for (int i = 0 ; i < _totalViewsCount; i++) {
         
         UIView *view = self.fetchViewAtIndex(i, self);
@@ -78,7 +78,6 @@
         view.frame = rightRect;
         [self.scrollView addSubview:view];
     }
-//    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES]; //控制scrollView开始显示的位置
 }
 
 - (void)showIndexView:(NSInteger)index
@@ -100,14 +99,11 @@
 #pragma mark -configureScrollView
 - (void)configureScrollView
 {
-    //        self.autoresizesSubviews = YES;
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kToolbarHeight, self.bounds.size.width, self.bounds.size.height - kToolbarHeight)];
-    //        self.scrollView.autoresizingMask = 0xFF;
-    //        self.scrollView.contentMode = UIViewContentModeCenter;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator   = NO;
     self.scrollView.backgroundColor = [UIColor grayColor];
-    self.scrollView.pagingEnabled = YES;// 实现分页显示''''
+    self.scrollView.pagingEnabled = YES;
     [self addSubview:_scrollView];
 }
 

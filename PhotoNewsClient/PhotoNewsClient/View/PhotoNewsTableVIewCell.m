@@ -17,10 +17,6 @@
 @end
 
 @implementation PhotoNewsTableVIewCell
-/*
- * 必须要加 生成 set 和 get 方法 ，不加会报 
- *[PhotoNewsTableVIewCell setImageView:]: unrecognized selector sent to instance 0xa06da10 错误
- */
 @synthesize imageView =_imageView, label = _label;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -40,8 +36,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 #pragma mark - Public Methods

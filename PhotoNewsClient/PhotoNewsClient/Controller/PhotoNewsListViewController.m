@@ -26,8 +26,8 @@
 #define kFirstShowNews 6
 #define kRowHeight 120.0f
 #define kRowsInSection 1
-#define kHeightForHeader 15.0
-#define kHeightForFooter 5.0
+#define kHeightForHeader 15.0f
+#define kHeightForFooter 5.0f
 
 @implementation PhotoNewsListViewController
 

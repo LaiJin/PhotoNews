@@ -75,7 +75,6 @@
 {
     struct sockaddr_in zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
-    /*bzero()会将参数s 所指的内存区域前n 个字节, 全部设为零值. 相当于调用memset((void*)s, 0,size_tn);*/
     zeroAddress.sin_len = sizeof(zeroAddress);
     zeroAddress.sin_family = AF_INET;
     
