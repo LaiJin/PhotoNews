@@ -1,3 +1,4 @@
+
 //
 //  PhotoNewsShowViewController.m
 //  PhotoNewsClient
@@ -71,7 +72,6 @@
 {
     [horizontalScrollView showIndexView: [notification.userInfo[@"index"] integerValue]];
 }
-
 
 #pragma mark -rightMenuButtonAction
 - (void)rightDrawerButtonPress

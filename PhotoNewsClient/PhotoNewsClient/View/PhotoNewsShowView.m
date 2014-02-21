@@ -12,7 +12,7 @@
 @interface PhotoNewsShowView ()
 
 @property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) UITextField *newsInfoText;
+@property (strong, nonatomic) UITextView *newsInfoText;
 
 @end
 
@@ -53,11 +53,11 @@
 #pragma mark -configureTextFiled
 - (void)configureTextFiled:(NSString *)newsContent
 {
-    self.newsInfoText = [[UITextField alloc] initWithFrame:CGRectMake(0, self.frame.size.height / kDenominator + kSpace, self.frame.size.width, self.frame.size.height / kDenominator)];
-    self.newsInfoText.text = newsContent;
-    self.newsInfoText.borderStyle = UITextBorderStyleRoundedRect;
-    self.newsInfoText.textAlignment = NSTextAlignmentCenter;
-    [self.newsInfoText setEnabled:NO];
+    self.newsInfoText = [[UITextView alloc] initWithFrame:CGRectMake(0, self.frame.size.height / kDenominator, self.frame.size.width, self.frame.size.height / kDenominator)];
+    [self.newsInfoText setText:newsContent];
+    [self.newsInfoText setFont:[UIFont systemFontOfSize:16.0]];
+    [self.newsInfoText setEditable:NO];
+    [self.newsInfoText setSelectable:NO];
     [self addSubview:_newsInfoText];
 }
 

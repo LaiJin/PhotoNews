@@ -69,7 +69,7 @@
 - (void)addShownViewsOnScrollView
 {
     NSInteger counter = 0;
-    self.scrollView.contentSize = CGSizeMake(self.totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));// 控制显示页面数量
+    self.scrollView.contentSize = CGSizeMake(_totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));// 控制显示页面数量
     for (int i = 0 ; i < _totalViewsCount; i++) {
         
         UIView *view = self.fetchViewAtIndex(i, self);

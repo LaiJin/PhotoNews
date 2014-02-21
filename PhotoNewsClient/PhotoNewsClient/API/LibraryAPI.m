@@ -75,6 +75,7 @@
 {
     struct sockaddr_in zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
+    /*bzero()会将参数s 所指的内存区域前n 个字节, 全部设为零值. 相当于调用memset((void*)s, 0,size_tn);*/
     zeroAddress.sin_len = sizeof(zeroAddress);
     zeroAddress.sin_family = AF_INET;
     
@@ -84,10 +85,7 @@
     BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
     CFRelease(defaultRouteReachability);
     
-    if (!didRetrieveFlags)
-    {
-      return NO;
-    }
+    if (!didRetrieveFlags) return NO;
     
     BOOL isReachable = flags & kSCNetworkFlagsReachable;
     BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
@@ -100,7 +98,6 @@
     UIImageView *imgaeView = notification.userInfo[@"imageView"];
     NSString *imageUrl = notification.userInfo[@"imageUrl"];
     imgaeView.image = [persistenceManager getImage:[imageUrl lastPathComponent]];
-    
     if (imgaeView.image == nil) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
