@@ -1,6 +1,12 @@
-<div style="margin: 10px 80px 10px 50px">
-  <%= image_tag @image_news.image.url%>
-</div>
-
-<%= image_tag @image_news.image.url(:small), :style => 'margin: 10px 80px 100px 50px'%>
-
+<% @all_image_news.each do |image_news| %>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="<%= image_news.image.url %>" alt="...">
+          <div class="caption">
+            <h3><%= image_news.content %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

@@ -12,16 +12,17 @@ class ImageUploadController < ApplicationController
     @image_news.content = params[:image_news][:content]
     @image_news.image_url = SERVER_URL + @image_news.image.url
     @image_news.save
-    redirect_to(:action => 'image_show_view', :id => @image_news.id)
+    redirect_to :image_show_view
+    #redirect_to(:action => 'image_show_view', :id => @image_news.id)
   end
 
   def image_show_view
-    if params[:id]
-      @image_news = ImageNews.find(params[:id])
-      return
-    end
-
-    redirect_to :image_upload_view
+    #if params[:id]
+    #  @image_news = ImageNews.find(params[:id])
+    #  return
+    #end
+    #redirect_to :image_upload_view
+    @all_image_news = ImageNews.all.reverse
   end
 
 end
