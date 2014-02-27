@@ -1,4 +1,6 @@
-<div style="margin: 100px 80px 100px 500px">
+<div style="margin: 10px 80px 10px 50px">
   <%= image_tag @image_news.image.url%>
 </div>
+
+<%= image_tag @image_news.image.url(:small), :style => 'margin: 10px 80px 100px 50px'%>
 

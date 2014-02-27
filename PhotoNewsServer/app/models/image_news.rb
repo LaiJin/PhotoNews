@@ -1,5 +1,6 @@
 class ImageNews < ActiveRecord::Base
   has_attached_file :image,
+                    :styles => { :small => '150x150>'},
                     :url  => '/images/:style/:basename.:extension',
                     :path => ':rails_root/public/images/:style/:basename.:extension'
   validates_attachment_presence :image
