@@ -67,6 +67,7 @@
 {
     allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
     count = allImageNews.count - allImageNews.count % kFirstShowNews;
+    displayNewsCount = kFirstShowNews;
     [photoNewsTableView reloadData];
     [notification.userInfo[@"alertView"] show];
     if(photoNewsTableView.pullTableIsRefreshing) {
@@ -80,7 +81,7 @@
 {
     if (allImageNews.count <= displayNewsCount)
         displayNewsCount = allImageNews.count;
-    else if (count == displayNewsCount)
+    else if (count <= displayNewsCount)
         displayNewsCount = allImageNews.count;
     else
         displayNewsCount += kFirstShowNews;

@@ -1,4 +1,4 @@
-<div style="background: #F5F5F5; width: 659px; padding: 50px; margin: 100px auto auto auto">
+<div style="background: #F5F5F5; padding: 50px; margin: 100px 300px 100px 300px">
   <%= form_for @image_news, :url =>{:action => 'upload'}, :html => {:multipart => true} do |f|  %>
       <p>请选择图片：</p>
       <%= f.file_field :image%>
