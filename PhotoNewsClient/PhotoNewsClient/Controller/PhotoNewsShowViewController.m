@@ -33,6 +33,11 @@
         [[LibraryAPI sharedInstance] requestServer];
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
         [self.view addSubview: horizontalScrollView];
+        __weak typeof(self) weakSelf = self;
+        horizontalScrollView.tapAction = ^(NSInteger viewIndex) {
+            [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+            NSLog(@"%i", viewIndex);
+        };
     }
     return self;
 }

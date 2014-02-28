@@ -60,6 +60,8 @@
     if (self) {
         [self configureToolBar:target];
         [self configureScrollView];
+//        UITapGestureRecognizer *tabGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
+//        [self.scrollView addGestureRecognizer:tabGestureRecognizer];
     }
     return self;
 }
@@ -68,14 +70,18 @@
 #pragma mark -addShowViewsOnScrollView Method
 - (void)addShownViewsOnScrollView
 {
+    if (!self.fetchViewAtIndex) return;
     NSInteger counter = 0;
     self.scrollView.contentSize = CGSizeMake(_totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
     for (int i = 0 ; i < _totalViewsCount; i++) {
+        UITapGestureRecognizer *tabGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
         
         UIView *view = self.fetchViewAtIndex(i, self);
         CGRect rightRect = view.frame;
         rightRect.origin = CGPointMake(CGRectGetWidth(self.scrollView.frame) * (counter ++), 0);
         view.frame = rightRect;
+        view.tag = i;
+        [view addGestureRecognizer:tabGestureRecognizer];
         [self.scrollView addSubview:view];
     }
 }
@@ -105,6 +111,17 @@
     self.scrollView.backgroundColor = [UIColor grayColor];
     self.scrollView.pagingEnabled = YES;
     [self addSubview:_scrollView];
+}
+
+- (void)scrollViewTapped:(UITapGestureRecognizer *)gesture
+{
+//    CGPoint location = [gesture locationInView:gesture.view];
+//    NSLog(@"%f", location.x);
+//    NSLog(@"%f", location.y);
+//    NSLog(@"%i", gesture.view.tag);
+    if (self.tapAction) {
+        self.tapAction(gesture.view.tag);
+    }
 }
 
 @end

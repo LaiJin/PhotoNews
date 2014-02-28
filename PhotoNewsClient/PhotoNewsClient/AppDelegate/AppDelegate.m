@@ -10,6 +10,7 @@
 #import "OCMapperConfig.h"
 #import "PhotoNewsShowViewController.h"
 #import "PhotoNewsListViewController.h"
+#import "WebViewController.h"
 
 @implementation AppDelegate
 
@@ -28,8 +29,10 @@
 {
     UIViewController *rightViewController = [[PhotoNewsListViewController alloc] init];
     UIViewController *centerViewController = [[PhotoNewsShowViewController alloc] init];
-    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController: centerViewController rightDrawerViewController:rightViewController];
+    UIViewController *webViewController = [[WebViewController alloc] init];
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController: centerViewController leftDrawerViewController:webViewController rightDrawerViewController:rightViewController];
     [self.drawerController setMaximumRightDrawerWidth:self.window.frame.size.width];
+    [self.drawerController setMaximumLeftDrawerWidth:self.window.frame.size.width];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
 }
