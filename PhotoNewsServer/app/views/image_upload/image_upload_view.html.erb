@@ -8,5 +8,8 @@
       <%= f.text_area :content, :class => 'form-control', :style => 'height: 200px'%>
       </div>
       <%= f.submit '上传' %>
+      <% if @image_news.errors.any? %>
+      <dd class="flash-error text-center" style="margin-top: 10px"><%= @image_news.errors.full_messages.first%></dd>
+      <% end %>
   <% end %>
 </div>
