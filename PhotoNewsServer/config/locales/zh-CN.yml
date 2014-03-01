@@ -1,0 +1,16 @@
+zh-CN:
+
+  activerecord:
+    attributes:
+      image_news:
+        image: "图片"
+        content: "内容"
+
+    errors:
+      models:
+        image_news:
+          attributes:
+            image:
+              blank: "不能为空"
+            content:
+              blank: "不能为空"
