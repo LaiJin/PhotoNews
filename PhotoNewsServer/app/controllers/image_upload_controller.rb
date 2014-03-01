@@ -3,6 +3,10 @@ class ImageUploadController < ApplicationController
   SERVER_URL = 'http://0.0.0.0:3000'
 
   def image_upload_view
+    #p '.................................'
+    #p  !request.user_agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+    #p   request.env
+    #p'..................................'
     @image_news = ImageNews.new
   end
 
@@ -33,6 +37,14 @@ class ImageUploadController < ApplicationController
    p   request.env
    p'..................................'
     @all_image_news = ImageNews.all.reverse
+  end
+
+  def delete_image_news
+    delete_image_news = ImageNews.find(params[:image_news_id])
+    delete_image_news.image.destroy
+    ImageNews.delete(params[:image_news_id])
+    params[:image_news_id] = nil
+    redirect_to :image_show_view
   end
 
 end
