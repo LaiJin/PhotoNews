@@ -47,4 +47,12 @@ class ImageUploadController < ApplicationController
     redirect_to :image_show_view
   end
 
+  def show_detailed_image_news_view
+    if params[:image_news_id]
+      @image_news_shown = ImageNews.find(params[:image_news_id])
+      return
+    end
+    redirect_to :image_show_view
+  end
+
 end
