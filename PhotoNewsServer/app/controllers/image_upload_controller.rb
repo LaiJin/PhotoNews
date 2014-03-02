@@ -33,15 +33,10 @@ class ImageUploadController < ApplicationController
   end
 
   def show_detailed_image_news_view
-    #"HTTP_USER_AGENT"=>"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.3 Safari/537.36"
     string = request.user_agent
     user_agent = UserAgent.parse(string)
-    p '.................................'
-    p  !request.user_agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
-    p   user_agent.platform
-    p   request.env['HTTP_USER_AGENT']
-    p'..................................'
-    @is_request_by_mac = !request.user_agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+    @is_request_by_iphone = user_agent.platform == 'iPhone'
+    @is_request_by_iphone
     if params[:image_news_id]
       @image_news_shown = ImageNews.find(params[:image_news_id])
       return
