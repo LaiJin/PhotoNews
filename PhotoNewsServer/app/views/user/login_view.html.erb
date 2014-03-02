@@ -1,2 +1,16 @@
-<h1>User#login_view</h1>
-<p>Find me in app/views/user/login_view.html.erb</p>
+<div style="background: #F5F5F5; width: 659px; padding: 50px; margin: auto auto auto auto">
+  <h4>用户登陆</h4>
+  <%= form_for(:user, :url => 'login') do |form| %>
+   <div class="input-group" style="margin-top: 20px; width: 559px">
+     <span class="input-group-addon text-center" style="width: 120px">账号</span>
+     <%= form.text_field :name, :class => 'form-control', :style => 'width: 450px', :placeholder => '请输入用户名' %>
+   </div>
+  <div class="input-group" style="margin-top: 20px; width: 559px">
+    <span class="input-group-addon text-center" style="width: 120px">密码</span>
+    <%= form.password_field :password, :class => 'form-control', :style => 'width: 450px', :placeholder => '请输入密码' %>
+  </div>
+  <div class="text-center">
+    <%= form.submit '登陆', :class => 'btn btn-default', :style => 'margin: 20px auto auto auto; width: 150px' %>
+  </div>
+  <% end %>
+</div>

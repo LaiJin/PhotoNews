@@ -5,7 +5,7 @@ class UserController < ApplicationController
   end
 
   def create_login_session
-
+      redirect_to :login
   end
 
 end
