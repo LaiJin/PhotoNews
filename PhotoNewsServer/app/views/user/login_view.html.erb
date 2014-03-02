@@ -9,6 +9,11 @@
     <span class="input-group-addon text-center" style="width: 120px">密码</span>
     <%= form.password_field :password, :class => 'form-control', :style => 'width: 450px', :placeholder => '请输入密码' %>
   </div>
+  <% if flash[:login_error] %>
+      <div class="flash-error text-center" style ="width:559px ;margin-top: 10px ">
+        <%= flash[:login_error] %>
+      </div>
+  <% end %>
   <div class="text-center">
     <%= form.submit '登陆', :class => 'btn btn-default', :style => 'margin: 20px auto auto auto; width: 150px' %>
   </div>

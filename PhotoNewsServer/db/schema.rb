@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212075705) do
+ActiveRecord::Schema.define(version: 20140302085034) do
 
   create_table "image_news", force: true do |t|
     t.text     "content"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20140212075705) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.string   "token"
+    t.boolean  "isAdmin",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
