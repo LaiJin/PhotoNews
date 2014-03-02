@@ -1,0 +1,14 @@
+<div class="container clearfix">
+  <ul id="user-links">
+    <% if current_user %>
+        <% if current_user.isAdmin %>
+            <li><%= link_to "你好, 管理员", image_show_view_path %> </li>
+        <% else %>
+            <li><%= link_to "你好," +current_user.name, image_show_view_path %> </li>
+        <% end %>
+           <li><%= link_to "退出", logout_path, method: "delete" %></li>
+    <% end %>
+  </ul>
+</div>
+
+
