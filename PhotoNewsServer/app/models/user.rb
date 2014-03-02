@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  attr_accessible :name, :password, :password_confirmation, :isAdmin, :token
+
   before_create { generate_token(:token) }
 
   has_secure_password
