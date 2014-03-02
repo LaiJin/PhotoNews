@@ -1,7 +1,9 @@
 PhotoNewsServer::Application.routes.draw do
 
-  root 'image_upload#image_upload_view', :as => 'image_upload_view'
 
+  #root 'user#login_view'
+  get  'login' =>'user#login_view' , :as => 'login'
+  get  'image_upload/image_upload_view' => 'image_upload#image_upload_view', :as => 'image_upload_view'
   post 'image_upload/image_upload_view' => 'image_upload#upload'
   get  'image_upload/image_show_view', :as => 'image_show_view'
   get  'image_upload/show_detailed_image_news_view' => 'image_upload#show_detailed_image_news_view', :as => 'show_detailed_image_news_view'
