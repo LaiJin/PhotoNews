@@ -11,6 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140306054305) do
+
+  create_table "detail_photos", force: true do |t|
+    t.integer  "title_photo_id"
+    t.text     "content"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  create_table "title_photos", force: true do |t|
+    t.string   "title"
+    t.text     "synopsis"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.string   "token"
+    t.boolean  "isAdmin",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
