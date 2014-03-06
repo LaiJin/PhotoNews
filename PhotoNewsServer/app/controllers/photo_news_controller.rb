@@ -68,4 +68,12 @@ class PhotoNewsController < ApplicationController
     render :detail_photo_upload_view
   end
 
+  def delete_photo_news
+    delete_photo_news = TitlePhoto.find(params[:title_photo_id])
+    delete_photo_news.photo.destroy
+    delete_photo_news.detail_photos.destroy_all
+    TitlePhoto.delete(params[:title_photo_id])
+    redirect_to :title_photo_news_list
+  end
+
 end
