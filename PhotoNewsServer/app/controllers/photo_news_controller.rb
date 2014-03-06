@@ -36,6 +36,7 @@ class PhotoNewsController < ApplicationController
     @title_photo.synopsis = params[:title_photo][:synopsis]
     @title_photo.url = SERVER_URL + @title_photo.photo.url
     if @title_photo.save
+      session[:title_photo_id] = @title_photo.id
       redirect_to :detail_photo_upload_view
       return
     end
@@ -43,13 +44,28 @@ class PhotoNewsController < ApplicationController
   end
 
   def detail_photo_upload_view
-    if current_user
+    if session[:title_photo_id]
       @detail_photo = DetailPhoto.new
+      return
     end
+    redirect_to :title_photo_upload_view
   end
 
   def upload_detail_photo
-
+    if !params[:detail_photo][:photo] && params[:detail_photo][:content] == '' && params[:commit] == '完成'
+      redirect_to(:action => :detail_photo_news_view, :title_photo_id => session[:title_photo_id])
+      return
+    end
+    @detail_photo = DetailPhoto.new
+    @detail_photo.title_photo_id = session[:title_photo_id]
+    @detail_photo.photo = params[:detail_photo][:photo]
+    @detail_photo.url = SERVER_URL + @detail_photo.photo.url
+    @detail_photo.content = params[:detail_photo][:content]
+    if @detail_photo.save
+      redirect_to :detail_photo_upload_view
+      return
+    end
+    render :detail_photo_upload_view
   end
 
 end
