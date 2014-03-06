@@ -1,0 +1,23 @@
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=0" />
+<ol class="breadcrumb" style="margin-right: 180px; margin-top: 20px">
+  <li><%= link_to '首页', title_photo_news_list_path %></li>
+  <li  class="active">添加</li>
+</ol>
+<div class="col-xs-12 col-md-8" style="background: #F5F5F5; padding: 10px; margin: 10px 5% 5px 5%">
+  <div style="margin: auto 20% auto 20%">
+    <%= form_for @title_photo, :url =>{:action => 'upload_title_photo'}, :html => {:multipart => true} do |f|  %>
+        <p>请选择图片：</p>
+        <%= f.file_field :photo%>
+        <div style="margin: 20px auto 20px auto">
+          <p style="font-size: 20px">标题：</p>
+          <%= f.text_field :title, :class => 'form-control'%>
+          <p style="font-size: 20px">简介：</p>
+          <%= f.text_area :synopsis, :class => 'form-control', :style => 'height: 200px'%>
+        </div>
+        <% if @title_photo.errors.any? %>
+            <dd class="flash-error text-center" style="margin: auto auto 10px auto"><%= @title_photo.errors.full_messages.first%></dd>
+        <% end %>
+        <%= f.submit '下一步', :class => 'btn btn-default', :style => 'margin: auto auto auto 80%; width: 80px' %>
+    <% end %>
+  </div>
+</div>

@@ -1,11 +1,18 @@
 PhotoNewsServer::Application.routes.draw do
 
-
-  get "photo_news/title_photo_news_list"
-  get "photo_news/detail_photo_news_view"
   #root 'user#login_view'
   get  'login' =>'user#login_view' , :as => 'login'
   post 'login' => 'user#create_login_session'
+
+  get 'title_photos' => 'photo_news#title_photo_news_list', :as => 'title_photo_news_list'
+
+  get 'title_photo_upload' => 'photo_news#title_photo_upload_view', :as => 'title_photo_upload_view'
+  post 'title_photo_upload' => 'photo_news#upload_title_photo'
+
+  get 'detail_photo_news' => 'photo_news#detail_photo_news_view', :as => 'detail_photo_news_view'
+  post 'detail_photo_news' => 'photo_news#upload_detail_photo_news'
+
+  delete 'title_photos' => 'photo_news#delete_photo_news', :as => 'delete_photo_news'
 
   get  'image_upload/image_upload_view' => 'image_upload#image_upload_view', :as => 'image_upload_view'
   post 'image_upload/image_upload_view' => 'image_upload#upload'

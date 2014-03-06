@@ -15,6 +15,9 @@ class ImageUploadController < ApplicationController
     @image_news.image = params[:image_news][:image]
     @image_news.content = params[:image_news][:content]
     @image_news.image_url = SERVER_URL + @image_news.image.url
+    p '..............'
+    p  ImageNews.all
+    p '..............'
     if @image_news.save
       redirect_to :image_show_view
       return
