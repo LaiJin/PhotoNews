@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
   def login_view
-    if !current_user
+    if current_user
       redirect_to :image_show_view
     end
   end
