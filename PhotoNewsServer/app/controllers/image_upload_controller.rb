@@ -3,6 +3,10 @@ class ImageUploadController < ApplicationController
   SERVER_URL = 'http://0.0.0.0:3000'
 
   def image_upload_view
+    if !current_user
+      redirect_to :image_show_view
+      return
+    end
     @image_news = ImageNews.new
   end
 
@@ -21,6 +25,10 @@ class ImageUploadController < ApplicationController
 
   def image_show_view
     #request_http_basic_authentication 让用户访问时需要验证
+    if !current_user
+        redirect_to :login
+      return
+    end
     @all_image_news = ImageNews.all.reverse
   end
 
@@ -33,11 +41,10 @@ class ImageUploadController < ApplicationController
   end
 
   def show_detailed_image_news_view
-    string = request.user_agent
-    user_agent = UserAgent.parse(string)
-    @is_request_by_iphone = user_agent.platform == 'iPhone'
-    @is_request_by_iphone
     if params[:image_news_id]
+      string = request.user_agent
+      user_agent = UserAgent.parse(string)
+      @is_request_by_iphone = user_agent.platform == 'iPhone'
       @image_news_shown = ImageNews.find(params[:image_news_id])
       return
     end

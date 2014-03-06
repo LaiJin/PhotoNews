@@ -1,12 +1,13 @@
 class UserController < ApplicationController
 
   def login_view
-
+    if !current_user
+      redirect_to :image_show_view
+    end
   end
 
   def create_login_session
     user = User.find_by_name(params[:user][:name])
-
     if user && user.authenticate(params[:user][:password])
       cookies.permanent[:token] = user.token
       redirect_to :image_show_view
