@@ -11,6 +11,14 @@ class PhotoNewsController < ApplicationController
   end
 
   def detail_photo_news_view
+    if params[:title_photo_id]
+      string = request.user_agent
+      user_agent = UserAgent.parse(string)
+      @is_request_by_iphone = user_agent.platform == 'iPhone'
+      @detail_photos = TitlePhoto.find(params[:title_photo_id]).detail_photos
+      return
+    end
+    redirect_to :title_photo_news_list
   end
 
   def title_photo_upload_view

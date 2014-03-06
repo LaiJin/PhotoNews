@@ -1,2 +1,19 @@
-<h1>PhotoNews#detail_photo_news_view</h1>
-<p>Find me in app/views/photo_news/detail_photo_news_view.html.erb</p>
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=0" />
+<% if !@is_request_by_iphone %>
+    <ol class="breadcrumb" style="margin-right: 180px; margin-top: 20px">
+      <li><%= link_to '首页', title_photo_news_list_path %></li>
+      <li  class="active">详情</li>
+    </ol>
+<% end %>
+<% @detail_photos.each do |detail_photo| %>
+    <div class="row col-xs-12 col-sm-6 col-md-8 center-block">
+      <div>
+        <div class="thumbnail">
+          <img src="<%= @detail_photo.photo.url %>" alt="这是一个图片" title="good">
+          <div class="caption">
+            <h3 style="font-size: 15px"><%= @detail_photo.content %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
