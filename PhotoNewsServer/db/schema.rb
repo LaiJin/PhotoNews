@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140306054305) do
 
   create_table "detail_photos", force: true do |t|
-    t.integer  "title_photo_id"
+    t.integer  "title_photo_id",     null: false
     t.text     "content"
     t.string   "url"
     t.datetime "created_at"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140306054305) do
     t.string   "name"
     t.string   "password_digest"
     t.string   "token"
-    t.boolean  "isAdmin",         default: false
+    t.boolean  "is_admin",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

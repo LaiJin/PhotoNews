@@ -1,7 +1,7 @@
 <div class="container clearfix">
   <ul id="user-links">
     <% if current_user %>
-        <% if current_user.isAdmin %>
+        <% if current_user.is_admin %>
             <li><%= link_to "你好, 管理员", title_photo_news_list_path %> </li>
         <% else %>
             <li><%= link_to "你好," +current_user.name, title_photo_news_list_path %> </li>

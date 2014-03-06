@@ -16,7 +16,7 @@
       </div>
       <div class="text-right">
         <%= link_to '查看正文', detail_photo_news_view_path(:title_photo_id => title_photo.id)%>
-        <% if current_user && current_user.isAdmin %>
+        <% if current_user && current_user.is_admin %>
             <%= link_to '删除', delete_photo_news_path(:title_photo_id => title_photo.id), :method => 'delete', :confirm => '确认删除吗？' %>
         <% end %>
       </div>
