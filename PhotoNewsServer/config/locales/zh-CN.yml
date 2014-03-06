@@ -2,9 +2,6 @@ zh-CN:
 
   activerecord:
     attributes:
-      image_news:
-        image: "图片"
-        content: "内容"
       title_photo:
         photo: "图片"
         title: "标题"
@@ -15,12 +12,6 @@ zh-CN:
 
     errors:
       models:
-        image_news:
-          attributes:
-            image:
-              blank: "不能为空"
-            content:
-              blank: "不能为空"
         title_photo:
           attributes:
             photo:
