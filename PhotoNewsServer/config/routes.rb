@@ -1,6 +1,8 @@
 PhotoNewsServer::Application.routes.draw do
 
 
+  get "photo_news/title_photo_news_list"
+  get "photo_news/detail_photo_news_view"
   #root 'user#login_view'
   get  'login' =>'user#login_view' , :as => 'login'
   post 'login' => 'user#create_login_session'
