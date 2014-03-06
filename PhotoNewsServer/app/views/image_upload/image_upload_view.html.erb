@@ -1,20 +1,23 @@
 <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=0" />
-<div style="background: #F5F5F5; padding: 20px; margin: 10% 10% 10% 10%">
+<ol class="breadcrumb" style="margin-right: 180px; margin-top: 20px">
+  <li><%= link_to '首页', image_show_view_path %></li>
+  <li  class="active">添加</li>
+</ol>
+<div class="col-xs-12 col-md-8" style="background: #F5F5F5; padding: 10px; margin: 10px 5% 5px 5%">
   <div style="margin: auto 20% auto 20%">
-  <div class="text-right">
-    <%= link_to '列表', image_show_view_path%>
-  </div>
-  <%= form_for @image_news, :url =>{:action => 'upload'}, :html => {:multipart => true} do |f|  %>
-      <p>请选择图片：</p>
-      <%= f.file_field :image%>
-      <div style="margin: 20px auto 20px auto">
-      <p style="font-size: 20px">内容：</p>
-      <%= f.text_area :content, :class => 'form-control', :style => 'height: 200px'%>
-      </div>
-      <%= f.submit '上传' %>
-      <% if @image_news.errors.any? %>
-      <dd class="flash-error text-center" style="margin-top: 10px"><%= @image_news.errors.full_messages.first%></dd>
-      <% end %>
-  <% end %>
+    <%= form_for @image_news, :url =>{:action => 'upload'}, :html => {:multipart => true} do |f|  %>
+        <p>请选择图片：</p>
+        <%= f.file_field :image%>
+        <div style="margin: 20px auto 20px auto">
+          <p style="font-size: 20px">标题：</p>
+          <%= f.text_field :content, :class => 'form-control'%>
+          <p style="font-size: 20px">简介：</p>
+          <%= f.text_area :content, :class => 'form-control', :style => 'height: 200px'%>
+        </div>
+        <% if @image_news.errors.any? %>
+            <dd class="flash-error text-center" style="margin: auto auto 10px auto"><%= @image_news.errors.full_messages.first%></dd>
+        <% end %>
+        <%= f.submit '下一步', :class => 'btn btn-default', :style => 'margin: auto auto auto 80%; width: 80px' %>
+    <% end %>
   </div>
 </div>
