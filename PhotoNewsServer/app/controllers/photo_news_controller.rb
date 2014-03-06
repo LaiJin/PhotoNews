@@ -48,4 +48,8 @@ class PhotoNewsController < ApplicationController
     end
   end
 
+  def upload_detail_photo
+
+  end
+
 end
