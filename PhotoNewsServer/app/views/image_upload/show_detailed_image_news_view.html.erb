@@ -1,8 +1,7 @@
 <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=0" />
 <% if !@is_request_by_iphone %>
     <ol class="breadcrumb" style="margin-right: 180px; margin-top: 20px">
-      <li><%= link_to '首页', image_upload_view_path %></li>
-      <li><%= link_to '列表', image_show_view_path %></li>
+      <li><%= link_to '首页', image_show_view_path %></li>
       <li  class="active">详情</li>
     </ol>
 <% end %>
