@@ -36,7 +36,7 @@ class PhotoNewsController < ApplicationController
     @title_photo.synopsis = params[:title_photo][:synopsis]
     @title_photo.url = SERVER_URL + @title_photo.photo.url
     if @title_photo.save
-      redirect_to :title_photo_news_list
+      redirect_to :detail_photo_upload_view
       return
     end
     render :title_photo_upload_view

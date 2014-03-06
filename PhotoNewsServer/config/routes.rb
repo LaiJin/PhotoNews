@@ -12,6 +12,9 @@ PhotoNewsServer::Application.routes.draw do
   get 'detail_photo_news' => 'photo_news#detail_photo_news_view', :as => 'detail_photo_news_view'
   post 'detail_photo_news' => 'photo_news#upload_detail_photo_news'
 
+  get 'detail_photo_upload' => 'photo_news#detail_photo_upload_view', :as => 'detail_photo_upload_view'
+  post 'detail_photo_upload' => 'photo_news#upload_detail_photo'
+
   delete 'title_photos' => 'photo_news#delete_photo_news', :as => 'delete_photo_news'
 
   get  'image_upload/image_upload_view' => 'image_upload#image_upload_view', :as => 'image_upload_view'
