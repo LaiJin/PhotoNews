@@ -1,5 +1,7 @@
 class PhotoNewsController < ApplicationController
 
+  SERVER_URL = 'http://0.0.0.0:3000'
+
   def title_photo_news_list
     if current_user
       @title_photos = TitlePhoto.all
@@ -20,12 +22,22 @@ class PhotoNewsController < ApplicationController
   end
 
   def upload_title_photo
-    @title_photo = TitlePhoto.new(params[:title_photo])
+    @title_photo = TitlePhoto.new
+    @title_photo.photo = params[:title_photo][:photo]
+    @title_photo.title = params[:title_photo][:title]
+    @title_photo.synopsis = params[:title_photo][:synopsis]
+    @title_photo.url = SERVER_URL + @title_photo.photo.url
     if @title_photo.save
-      redirect_to :title_photos
+      redirect_to :title_photo_news_list
       return
     end
-    redirect_to :title_photo_upload_view
+    render :title_photo_upload_view
+  end
+
+  def detail_photo_upload_view
+    if current_user
+      @detail_photo = DetailPhoto.new
+    end
   end
 
 end
