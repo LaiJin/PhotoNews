@@ -29,14 +29,17 @@
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadScrollView:)
                                                      name:@"requestComplete" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSelectView:) name:@"showSelectView" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSelectView:)
+                                                     name:@"showSelectView" object:nil];
         [[LibraryAPI sharedInstance] requestServer];
+        
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
         [self.view addSubview: horizontalScrollView];
+        
         __weak typeof(self) weakSelf = self;
         horizontalScrollView.tapAction = ^(NSInteger viewIndex) {
             [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-            NSLog(@"%i", viewIndex);
+             NSLog(@"%i", viewIndex);
         };
     }
     return self;
@@ -50,6 +53,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    /*控制不会在toolbar上通过左右滑动手势达到切换视图的目的, 放在viewDidLoad方法里达不到效果*/
+    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
 }
 
 

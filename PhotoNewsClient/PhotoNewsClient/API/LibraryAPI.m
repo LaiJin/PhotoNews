@@ -54,7 +54,7 @@
 - (void)requestServer
 {
 //    if ([self isNetworkReachable]) {
-        [httpClient getRequest:@"http://0.0.0.0:3000/image_news_data.json" requestDelegateImplementor:self];
+        [httpClient getRequest:@"http://192.168.1.102:3000/title_photo_data.json" requestDelegateImplementor:self];
 //        return;
 //    }
 //    NSLog(@"请检查网络是否连接!");
@@ -103,7 +103,6 @@
             UIImage *imgae = [httpClient downloadImage:imageUrl];
             dispatch_sync(dispatch_get_main_queue(), ^{
                 imgaeView.image = imgae;
-                
                 [persistenceManager saveImage:imgae filename:[imageUrl lastPathComponent]];
             });
         });

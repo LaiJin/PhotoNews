@@ -8,7 +8,9 @@
 
 #import "WebViewController.h"
 
-@interface WebViewController ()<UIWebViewDelegate, UIScrollViewDelegate>
+@interface WebViewController ()<UIWebViewDelegate>
+
+//@property (nonatomic, strong) UIWebView *webView;
 
 @end
 
@@ -28,11 +30,8 @@
     [super viewDidLoad];
     UIWebView *imageNewsWebView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [imageNewsWebView setScalesPageToFit:NO];
-//    [imageNewsWebView.scrollView setShowsHorizontalScrollIndicator:NO];
-////    [imageNewsWebView.scrollView setContentSize:CGSizeMake(0, 0)];
-////    [imageNewsWebView.scrollView setAlwaysBounceVertical:YES];
     [self.view addSubview:imageNewsWebView];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://192.168.1.102:3000/image_upload/image_show_view"]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://192.168.1.102:3000"]];
     [imageNewsWebView loadRequest:request];
 }
 
