@@ -62,7 +62,7 @@ class PhotoNewsController < ApplicationController
     @detail_photo = DetailPhoto.new
     @detail_photo.title_photo_id = session[:title_photo_id]
     @detail_photo.photo = params[:detail_photo][:photo]
-    @detail_photo.url = SERVER_URL + @detail_photo.photo.url
+    @detail_photo.url = params[:detail_photo][:photo] ? SERVER_URL + @detail_photo.photo.url : nil
     @detail_photo.content = params[:detail_photo][:content]
     if @detail_photo.save && params[:commit] == '上传'
       redirect_to :detail_photo_upload_view
