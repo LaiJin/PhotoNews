@@ -3,6 +3,7 @@ class PhotoNewsController < ApplicationController
   SERVER_URL = 'http://0.0.0.0:3000'
 
   def title_photo_news_list
+    session[:title_photo_id] = nil
     if current_user
       @title_photos = TitlePhoto.all
       return
@@ -22,6 +23,7 @@ class PhotoNewsController < ApplicationController
   end
 
   def title_photo_upload_view
+    session[:title_photo_id] = nil
     if current_user
       @title_photo = TitlePhoto.new
       return
@@ -45,6 +47,7 @@ class PhotoNewsController < ApplicationController
 
   def detail_photo_upload_view
     if session[:title_photo_id]
+      @detail_photos = TitlePhoto.find(session[:title_photo_id]).detail_photos
       @detail_photo = DetailPhoto.new
       return
     end
@@ -61,11 +64,16 @@ class PhotoNewsController < ApplicationController
     @detail_photo.photo = params[:detail_photo][:photo]
     @detail_photo.url = SERVER_URL + @detail_photo.photo.url
     @detail_photo.content = params[:detail_photo][:content]
-    if @detail_photo.save
+    if @detail_photo.save && params[:commit] == '上传'
       redirect_to :detail_photo_upload_view
       return
     end
-    render :detail_photo_upload_view
+    if @detail_photo.save && params[:commit] == '完成'
+      redirect_to(:action => :detail_photo_news_view, :title_photo_id => session[:title_photo_id])
+      return
+    end
+    flash[:error] = @detail_photo.errors.full_messages.first
+    redirect_to :detail_photo_upload_view
   end
 
   def delete_photo_news
