@@ -55,8 +55,7 @@ class PhotoNewsController < ApplicationController
   end
 
   def upload_detail_photo
-    if !params[:detail_photo][:photo] && params[:detail_photo][:content] == '' && params[:commit] == '完成'
-      redirect_to(:action => :detail_photo_news_view, :title_photo_id => session[:title_photo_id])
+    if judge_is_upload_noting
       return
     end
     @detail_photo = DetailPhoto.new
@@ -64,15 +63,11 @@ class PhotoNewsController < ApplicationController
     @detail_photo.photo = params[:detail_photo][:photo]
     @detail_photo.url = params[:detail_photo][:photo] ? SERVER_URL + @detail_photo.photo.url : nil
     @detail_photo.content = params[:detail_photo][:content]
-    if @detail_photo.save && params[:commit] == '上传'
-      redirect_to :detail_photo_upload_view
-      return
-    end
-    if @detail_photo.save && params[:commit] == '完成'
+    @detail_photo.save
+    if params[:commit] == '完成'
       redirect_to(:action => :detail_photo_news_view, :title_photo_id => session[:title_photo_id])
       return
     end
-    flash[:error] = @detail_photo.errors.full_messages.first
     redirect_to :detail_photo_upload_view
   end
 
@@ -82,6 +77,18 @@ class PhotoNewsController < ApplicationController
     delete_photo_news.detail_photos.destroy_all
     TitlePhoto.delete(params[:title_photo_id])
     redirect_to :title_photo_news_list
+  end
+
+  private
+  def judge_is_upload_noting
+    if !params[:detail_photo][:photo] && params[:detail_photo][:content] == ''
+      if params[:commit] == '上传'
+        flash[:error] = '不能全为空!'
+        redirect_to :detail_photo_upload_view
+        return true
+      end
+      redirect_to(:action => :detail_photo_news_view, :title_photo_id => session[:title_photo_id])
+    end
   end
 
 end
