@@ -1,10 +1,10 @@
 class ClientResponseController < ApplicationController
 
   def respond_client_request
-    @image_news = ImageNews.all
-    @image_news =  @image_news.reverse
+    @title_photos = TitlePhoto.all
+    @title_photos =  @title_photos.reverse
     respond_to do |format|
-      format.json {render :json =>  @image_news.to_json}
+      format.json {render :json =>  @title_photos.to_json}
     end
   end
 

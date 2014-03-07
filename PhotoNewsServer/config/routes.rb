@@ -18,4 +18,6 @@ PhotoNewsServer::Application.routes.draw do
 
   delete 'title_photos' => 'photo_news#delete_photo_news', :as => 'delete_photo_news'
 
+  get '/title_photo_data' => 'client_response#respond_client_request'
+
 end
