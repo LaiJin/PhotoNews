@@ -3,7 +3,6 @@ class DetailPhoto < ActiveRecord::Base
   belongs_to :title_photo
 
   has_attached_file :photo,
-                    :styles => { :small => '150x150>'},
                     :url  => '/detailPhoto/:style/:basename.:extension',
                     :path => ':rails_root/public/detailPhoto/:style/:basename.:extension'
   validates_attachment_presence :photo
