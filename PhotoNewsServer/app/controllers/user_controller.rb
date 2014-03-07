@@ -2,7 +2,7 @@ class UserController < ApplicationController
 
   def login_view
     if current_user
-      redirect_to :image_show_view
+      redirect_to :title_photo_news_list
     end
   end
 
