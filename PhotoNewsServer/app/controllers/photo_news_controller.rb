@@ -12,6 +12,7 @@ class PhotoNewsController < ApplicationController
   end
 
   def detail_photo_news_view
+    session[:title_photo_id] = nil
     if params[:title_photo_id]
       string = request.user_agent
       user_agent = UserAgent.parse(string)
