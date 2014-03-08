@@ -25,19 +25,19 @@
 		9AAF9BDD18A8DF260032EC74 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AAF9BDB18A8DF260032EC74 /* InfoPlist.strings */; };
 		9AAF9BE018A8DF260032EC74 /* PhotoNewsClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF9BDF18A8DF260032EC74 /* PhotoNewsClientTests.m */; };
 		9AAF9BEF18A9B3F10032EC74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF9BEB18A9B3F10032EC74 /* AppDelegate.m */; };
-		9AFFEA2B18A9C325005D5574 /* PhotoNewsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */; };
-		9AFFEA2E18A9C4EE005D5574 /* PhotoNewsShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */; };
-		DD19538D18CAAFE100F771E5 /* TitlePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19538C18CAAFE100F771E5 /* TitlePhoto.m */; };
-		DD292EC518BF40D2005E2968 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD292EC418BF40D1005E2968 /* WebViewController.m */; };
-		DD30177218AC6BB3007FEE40 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177118AC6BB3007FEE40 /* HTTPClient.m */; };
-		DD30177518AC6BEA007FEE40 /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177418AC6BEA007FEE40 /* PersistenceManager.m */; };
-		DD30177818AC6C56007FEE40 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177718AC6C56007FEE40 /* LibraryAPI.m */; };
-		DD30177B18AC964E007FEE40 /* OCMapperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177A18AC964E007FEE40 /* OCMapperConfig.m */; };
-		DD4E410418B2EE4D005AC6D0 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4E410318B2EE4D005AC6D0 /* loading.png */; };
-		DD4E410618B2F36E005AC6D0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4E410518B2F36E005AC6D0 /* placeholder.png */; };
-		DD67257218B1BB4900155BAC /* PhotoNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD67257118B1BB4900155BAC /* PhotoNewsListViewController.m */; };
-		DD67257518B212F400155BAC /* PhotoNewsTableVIewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD67257418B212F300155BAC /* PhotoNewsTableVIewCell.m */; };
-		DD6ABAFD18ADC16F0072BBA5 /* HorizontalScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6ABAFC18ADC16F0072BBA5 /* HorizontalScrollView.m */; };
+		DD1953A918CAC9D800F771E5 /* PhotoNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19539A18CAC9D800F771E5 /* PhotoNewsListViewController.m */; };
+		DD1953AA18CAC9D800F771E5 /* PhotoNewsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19539C18CAC9D800F771E5 /* PhotoNewsShowViewController.m */; };
+		DD1953AB18CAC9D800F771E5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19539E18CAC9D800F771E5 /* WebViewController.m */; };
+		DD1953AC18CAC9D800F771E5 /* TitlePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953A118CAC9D800F771E5 /* TitlePhoto.m */; };
+		DD1953AD18CAC9D800F771E5 /* HorizontalScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953A418CAC9D800F771E5 /* HorizontalScrollView.m */; };
+		DD1953AE18CAC9D800F771E5 /* PhotoNewsShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953A618CAC9D800F771E5 /* PhotoNewsShowView.m */; };
+		DD1953AF18CAC9D800F771E5 /* PhotoNewsTableVIewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953A818CAC9D800F771E5 /* PhotoNewsTableVIewCell.m */; };
+		DD1953C118CACCB500F771E5 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953BB18CACCB500F771E5 /* HTTPClient.m */; };
+		DD1953C218CACCB500F771E5 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953BD18CACCB500F771E5 /* LibraryAPI.m */; };
+		DD1953C318CACCB500F771E5 /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953BF18CACCB500F771E5 /* PersistenceManager.m */; };
+		DD1953C718CACCED00F771E5 /* OCMapperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953C618CACCED00F771E5 /* OCMapperConfig.m */; };
+		DD1953CC18CACD9300F771E5 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1953CA18CACD9300F771E5 /* loading.png */; };
+		DD1953CD18CACD9300F771E5 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1953CB18CACD9300F771E5 /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,30 +75,30 @@
 		9AAF9BDF18A8DF260032EC74 /* PhotoNewsClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsClientTests.m; sourceTree = "<group>"; };
 		9AAF9BEA18A9B3F10032EC74 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9AAF9BEB18A9B3F10032EC74 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9AFFEA2918A9C325005D5574 /* PhotoNewsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsShowViewController.h; sourceTree = "<group>"; };
-		9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsShowViewController.m; sourceTree = "<group>"; };
-		9AFFEA2C18A9C4EE005D5574 /* PhotoNewsShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsShowView.h; sourceTree = "<group>"; };
-		9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsShowView.m; sourceTree = "<group>"; };
-		DD19538B18CAAFE100F771E5 /* TitlePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitlePhoto.h; sourceTree = "<group>"; };
-		DD19538C18CAAFE100F771E5 /* TitlePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitlePhoto.m; sourceTree = "<group>"; };
-		DD292EC318BF40D1005E2968 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		DD292EC418BF40D1005E2968 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		DD30177018AC6BB3007FEE40 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
-		DD30177118AC6BB3007FEE40 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
-		DD30177318AC6BEA007FEE40 /* PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
-		DD30177418AC6BEA007FEE40 /* PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceManager.m; sourceTree = "<group>"; };
-		DD30177618AC6C56007FEE40 /* LibraryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryAPI.h; sourceTree = "<group>"; };
-		DD30177718AC6C56007FEE40 /* LibraryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryAPI.m; sourceTree = "<group>"; };
-		DD30177918AC964E007FEE40 /* OCMapperConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMapperConfig.h; sourceTree = "<group>"; };
-		DD30177A18AC964E007FEE40 /* OCMapperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMapperConfig.m; sourceTree = "<group>"; };
-		DD4E410318B2EE4D005AC6D0 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
-		DD4E410518B2F36E005AC6D0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		DD67257018B1BB4900155BAC /* PhotoNewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoNewsListViewController.h; path = PhotoNewsClient/Controller/PhotoNewsListViewController.h; sourceTree = SOURCE_ROOT; };
-		DD67257118B1BB4900155BAC /* PhotoNewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoNewsListViewController.m; path = PhotoNewsClient/Controller/PhotoNewsListViewController.m; sourceTree = SOURCE_ROOT; };
-		DD67257318B212F300155BAC /* PhotoNewsTableVIewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsTableVIewCell.h; sourceTree = "<group>"; };
-		DD67257418B212F300155BAC /* PhotoNewsTableVIewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsTableVIewCell.m; sourceTree = "<group>"; };
-		DD6ABAFB18ADC16F0072BBA5 /* HorizontalScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScrollView.h; sourceTree = "<group>"; };
-		DD6ABAFC18ADC16F0072BBA5 /* HorizontalScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScrollView.m; sourceTree = "<group>"; };
+		DD19539918CAC9D800F771E5 /* PhotoNewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsListViewController.h; sourceTree = "<group>"; };
+		DD19539A18CAC9D800F771E5 /* PhotoNewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsListViewController.m; sourceTree = "<group>"; };
+		DD19539B18CAC9D800F771E5 /* PhotoNewsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsShowViewController.h; sourceTree = "<group>"; };
+		DD19539C18CAC9D800F771E5 /* PhotoNewsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsShowViewController.m; sourceTree = "<group>"; };
+		DD19539D18CAC9D800F771E5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		DD19539E18CAC9D800F771E5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		DD1953A018CAC9D800F771E5 /* TitlePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitlePhoto.h; sourceTree = "<group>"; };
+		DD1953A118CAC9D800F771E5 /* TitlePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitlePhoto.m; sourceTree = "<group>"; };
+		DD1953A318CAC9D800F771E5 /* HorizontalScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScrollView.h; sourceTree = "<group>"; };
+		DD1953A418CAC9D800F771E5 /* HorizontalScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScrollView.m; sourceTree = "<group>"; };
+		DD1953A518CAC9D800F771E5 /* PhotoNewsShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsShowView.h; sourceTree = "<group>"; };
+		DD1953A618CAC9D800F771E5 /* PhotoNewsShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsShowView.m; sourceTree = "<group>"; };
+		DD1953A718CAC9D800F771E5 /* PhotoNewsTableVIewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsTableVIewCell.h; sourceTree = "<group>"; };
+		DD1953A818CAC9D800F771E5 /* PhotoNewsTableVIewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsTableVIewCell.m; sourceTree = "<group>"; };
+		DD1953BA18CACCB500F771E5 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
+		DD1953BB18CACCB500F771E5 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
+		DD1953BC18CACCB500F771E5 /* LibraryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryAPI.h; sourceTree = "<group>"; };
+		DD1953BD18CACCB500F771E5 /* LibraryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryAPI.m; sourceTree = "<group>"; };
+		DD1953BE18CACCB500F771E5 /* PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
+		DD1953BF18CACCB500F771E5 /* PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceManager.m; sourceTree = "<group>"; };
+		DD1953C518CACCED00F771E5 /* OCMapperConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMapperConfig.h; sourceTree = "<group>"; };
+		DD1953C618CACCED00F771E5 /* OCMapperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMapperConfig.m; sourceTree = "<group>"; };
+		DD1953CA18CACD9300F771E5 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		DD1953CB18CACD9300F771E5 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +168,11 @@
 			isa = PBXGroup;
 			children = (
 				9AAF9BE918A9B3F10032EC74 /* AppDelegate */,
-				DD30176C18AC6116007FEE40 /* API */,
-				9AAF9BEE18A9B3F10032EC74 /* View */,
-				9AAF9BEC18A9B3F10032EC74 /* Controller */,
-				9AAF9BED18A9B3F10032EC74 /* Model */,
+				DD1953A218CAC9D800F771E5 /* Views */,
+				DD19539818CAC9D800F771E5 /* Controllers */,
+				DD19539F18CAC9D800F771E5 /* Models */,
+				DD1953B518CACCB500F771E5 /* Helpers */,
+				DD1953C818CACD6C00F771E5 /* Resources */,
 				9AAF9BBB18A8DF230032EC74 /* Supporting Files */,
 			);
 			path = PhotoNewsClient;
@@ -180,7 +181,6 @@
 		9AAF9BBB18A8DF230032EC74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DD4E410218B2EE4D005AC6D0 /* Image */,
 				9AAF9BBC18A8DF230032EC74 /* PhotoNewsClient-Info.plist */,
 				9AAF9BBD18A8DF230032EC74 /* InfoPlist.strings */,
 				9AAF9BC018A8DF230032EC74 /* main.m */,
@@ -220,63 +220,87 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		9AAF9BEC18A9B3F10032EC74 /* Controller */ = {
+		DD19539818CAC9D800F771E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD67257018B1BB4900155BAC /* PhotoNewsListViewController.h */,
-				DD67257118B1BB4900155BAC /* PhotoNewsListViewController.m */,
-				9AFFEA2918A9C325005D5574 /* PhotoNewsShowViewController.h */,
-				9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */,
-				DD292EC318BF40D1005E2968 /* WebViewController.h */,
-				DD292EC418BF40D1005E2968 /* WebViewController.m */,
+				DD19539918CAC9D800F771E5 /* PhotoNewsListViewController.h */,
+				DD19539A18CAC9D800F771E5 /* PhotoNewsListViewController.m */,
+				DD19539B18CAC9D800F771E5 /* PhotoNewsShowViewController.h */,
+				DD19539C18CAC9D800F771E5 /* PhotoNewsShowViewController.m */,
+				DD19539D18CAC9D800F771E5 /* WebViewController.h */,
+				DD19539E18CAC9D800F771E5 /* WebViewController.m */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		9AAF9BED18A9B3F10032EC74 /* Model */ = {
+		DD19539F18CAC9D800F771E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DD19538B18CAAFE100F771E5 /* TitlePhoto.h */,
-				DD19538C18CAAFE100F771E5 /* TitlePhoto.m */,
+				DD1953A018CAC9D800F771E5 /* TitlePhoto.h */,
+				DD1953A118CAC9D800F771E5 /* TitlePhoto.m */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		9AAF9BEE18A9B3F10032EC74 /* View */ = {
+		DD1953A218CAC9D800F771E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9AFFEA2C18A9C4EE005D5574 /* PhotoNewsShowView.h */,
-				9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */,
-				DD6ABAFB18ADC16F0072BBA5 /* HorizontalScrollView.h */,
-				DD6ABAFC18ADC16F0072BBA5 /* HorizontalScrollView.m */,
-				DD67257318B212F300155BAC /* PhotoNewsTableVIewCell.h */,
-				DD67257418B212F300155BAC /* PhotoNewsTableVIewCell.m */,
+				DD1953A318CAC9D800F771E5 /* HorizontalScrollView.h */,
+				DD1953A418CAC9D800F771E5 /* HorizontalScrollView.m */,
+				DD1953A518CAC9D800F771E5 /* PhotoNewsShowView.h */,
+				DD1953A618CAC9D800F771E5 /* PhotoNewsShowView.m */,
+				DD1953A718CAC9D800F771E5 /* PhotoNewsTableVIewCell.h */,
+				DD1953A818CAC9D800F771E5 /* PhotoNewsTableVIewCell.m */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		DD30176C18AC6116007FEE40 /* API */ = {
+		DD1953B518CACCB500F771E5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DD30177618AC6C56007FEE40 /* LibraryAPI.h */,
-				DD30177718AC6C56007FEE40 /* LibraryAPI.m */,
-				DD30177018AC6BB3007FEE40 /* HTTPClient.h */,
-				DD30177118AC6BB3007FEE40 /* HTTPClient.m */,
-				DD30177318AC6BEA007FEE40 /* PersistenceManager.h */,
-				DD30177418AC6BEA007FEE40 /* PersistenceManager.m */,
-				DD30177918AC964E007FEE40 /* OCMapperConfig.h */,
-				DD30177A18AC964E007FEE40 /* OCMapperConfig.m */,
+				DD1953B918CACCB500F771E5 /* ServerConnection */,
+				DD1953C418CACCED00F771E5 /* ConfigOCMapper */,
 			);
-			path = API;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
-		DD4E410218B2EE4D005AC6D0 /* Image */ = {
+		DD1953B918CACCB500F771E5 /* ServerConnection */ = {
 			isa = PBXGroup;
 			children = (
-				DD4E410518B2F36E005AC6D0 /* placeholder.png */,
-				DD4E410318B2EE4D005AC6D0 /* loading.png */,
+				DD1953BC18CACCB500F771E5 /* LibraryAPI.h */,
+				DD1953BD18CACCB500F771E5 /* LibraryAPI.m */,
+				DD1953BA18CACCB500F771E5 /* HTTPClient.h */,
+				DD1953BB18CACCB500F771E5 /* HTTPClient.m */,
+				DD1953BE18CACCB500F771E5 /* PersistenceManager.h */,
+				DD1953BF18CACCB500F771E5 /* PersistenceManager.m */,
 			);
-			path = Image;
+			path = ServerConnection;
+			sourceTree = "<group>";
+		};
+		DD1953C418CACCED00F771E5 /* ConfigOCMapper */ = {
+			isa = PBXGroup;
+			children = (
+				DD1953C518CACCED00F771E5 /* OCMapperConfig.h */,
+				DD1953C618CACCED00F771E5 /* OCMapperConfig.m */,
+			);
+			path = ConfigOCMapper;
+			sourceTree = "<group>";
+		};
+		DD1953C818CACD6C00F771E5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD1953C918CACD9300F771E5 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD1953C918CACD9300F771E5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DD1953CA18CACD9300F771E5 /* loading.png */,
+				DD1953CB18CACD9300F771E5 /* placeholder.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,9 +376,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1953CC18CACD9300F771E5 /* loading.png in Resources */,
+				DD1953CD18CACD9300F771E5 /* placeholder.png in Resources */,
 				9AAF9BBF18A8DF230032EC74 /* InfoPlist.strings in Resources */,
-				DD4E410618B2F36E005AC6D0 /* placeholder.png in Resources */,
-				DD4E410418B2EE4D005AC6D0 /* loading.png in Resources */,
 				9AAF9BC718A8DF230032EC74 /* Default.png in Resources */,
 				9AAF9BC918A8DF230032EC74 /* Default@2x.png in Resources */,
 				9AAF9BCB18A8DF230032EC74 /* Default-568h@2x.png in Resources */,
@@ -423,18 +447,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AAF9BC118A8DF230032EC74 /* main.m in Sources */,
-				DD19538D18CAAFE100F771E5 /* TitlePhoto.m in Sources */,
-				DD67257518B212F400155BAC /* PhotoNewsTableVIewCell.m in Sources */,
+				DD1953AF18CAC9D800F771E5 /* PhotoNewsTableVIewCell.m in Sources */,
+				DD1953C118CACCB500F771E5 /* HTTPClient.m in Sources */,
+				DD1953A918CAC9D800F771E5 /* PhotoNewsListViewController.m in Sources */,
 				9AAF9BEF18A9B3F10032EC74 /* AppDelegate.m in Sources */,
-				DD30177218AC6BB3007FEE40 /* HTTPClient.m in Sources */,
-				DD6ABAFD18ADC16F0072BBA5 /* HorizontalScrollView.m in Sources */,
-				9AFFEA2B18A9C325005D5574 /* PhotoNewsShowViewController.m in Sources */,
-				DD292EC518BF40D2005E2968 /* WebViewController.m in Sources */,
-				DD30177518AC6BEA007FEE40 /* PersistenceManager.m in Sources */,
-				DD30177818AC6C56007FEE40 /* LibraryAPI.m in Sources */,
-				DD67257218B1BB4900155BAC /* PhotoNewsListViewController.m in Sources */,
-				DD30177B18AC964E007FEE40 /* OCMapperConfig.m in Sources */,
-				9AFFEA2E18A9C4EE005D5574 /* PhotoNewsShowView.m in Sources */,
+				DD1953C718CACCED00F771E5 /* OCMapperConfig.m in Sources */,
+				DD1953C218CACCB500F771E5 /* LibraryAPI.m in Sources */,
+				DD1953AB18CAC9D800F771E5 /* WebViewController.m in Sources */,
+				DD1953C318CACCB500F771E5 /* PersistenceManager.m in Sources */,
+				DD1953AE18CAC9D800F771E5 /* PhotoNewsShowView.m in Sources */,
+				DD1953AC18CAC9D800F771E5 /* TitlePhoto.m in Sources */,
+				DD1953AD18CAC9D800F771E5 /* HorizontalScrollView.m in Sources */,
+				DD1953AA18CAC9D800F771E5 /* PhotoNewsShowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
