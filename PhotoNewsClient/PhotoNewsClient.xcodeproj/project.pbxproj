@@ -27,6 +27,7 @@
 		9AAF9BEF18A9B3F10032EC74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF9BEB18A9B3F10032EC74 /* AppDelegate.m */; };
 		9AFFEA2B18A9C325005D5574 /* PhotoNewsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */; };
 		9AFFEA2E18A9C4EE005D5574 /* PhotoNewsShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */; };
+		DD19538D18CAAFE100F771E5 /* TitlePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19538C18CAAFE100F771E5 /* TitlePhoto.m */; };
 		DD292EC518BF40D2005E2968 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD292EC418BF40D1005E2968 /* WebViewController.m */; };
 		DD30176F18AC62F4007FEE40 /* ImageNews.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30176E18AC62F4007FEE40 /* ImageNews.m */; };
 		DD30177218AC6BB3007FEE40 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177118AC6BB3007FEE40 /* HTTPClient.m */; };
@@ -79,6 +80,8 @@
 		9AFFEA2A18A9C325005D5574 /* PhotoNewsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsShowViewController.m; sourceTree = "<group>"; };
 		9AFFEA2C18A9C4EE005D5574 /* PhotoNewsShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNewsShowView.h; sourceTree = "<group>"; };
 		9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNewsShowView.m; sourceTree = "<group>"; };
+		DD19538B18CAAFE100F771E5 /* TitlePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitlePhoto.h; sourceTree = "<group>"; };
+		DD19538C18CAAFE100F771E5 /* TitlePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitlePhoto.m; sourceTree = "<group>"; };
 		DD292EC318BF40D1005E2968 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		DD292EC418BF40D1005E2968 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		DD30176D18AC62F4007FEE40 /* ImageNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageNews.h; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 			children = (
 				DD30176D18AC62F4007FEE40 /* ImageNews.h */,
 				DD30176E18AC62F4007FEE40 /* ImageNews.m */,
+				DD19538B18CAAFE100F771E5 /* TitlePhoto.h */,
+				DD19538C18CAAFE100F771E5 /* TitlePhoto.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AAF9BC118A8DF230032EC74 /* main.m in Sources */,
+				DD19538D18CAAFE100F771E5 /* TitlePhoto.m in Sources */,
 				DD67257518B212F400155BAC /* PhotoNewsTableVIewCell.m in Sources */,
 				9AAF9BEF18A9B3F10032EC74 /* AppDelegate.m in Sources */,
 				DD30177218AC6BB3007FEE40 /* HTTPClient.m in Sources */,
