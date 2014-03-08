@@ -39,7 +39,7 @@
 - (void)setTotalPagesCount:(NSInteger (^)(void))totalPagesCount
 {
     _totalViewsCount = totalPagesCount();
-    if (_totalViewsCount > 0) {
+    if (_totalViewsCount >= 0) {
         [self reload];
     }
 }
