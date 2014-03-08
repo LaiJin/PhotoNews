@@ -10,7 +10,7 @@
 
 @interface PersistenceManager ()
 
-@property (strong, nonatomic) NSMutableArray *imageNewsData;
+@property (strong, nonatomic) NSMutableArray *titlePhotoData;
 
 @end
 
@@ -21,31 +21,29 @@
 {
     self = [super init];
     if (self) {
-        self.imageNewsData  = [[NSMutableArray alloc] init];
+        self.titlePhotoData  = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 #pragma mark - Public Method
-#pragma mark -saveImageNewsData
-- (void)saveImageNewsData :(NSMutableArray *)imageNewsData
+#pragma mark - titlePhotoData operate
+- (void)saveTitlePhotoData:(NSMutableArray *)titlePhotoData
 {
-    self.imageNewsData = [NSMutableArray arrayWithArray:imageNewsData];
-    [NSKeyedArchiver archiveRootObject:self.imageNewsData toFile:[self getImageNewsDataFilePath]];
+    self.titlePhotoData = [NSMutableArray arrayWithArray:titlePhotoData];
+    [NSKeyedArchiver archiveRootObject:self.titlePhotoData toFile:[self getTitlePhotoDataFilePath]];
 }
 
-#pragma mark -getImageNewsData
-- (NSArray *)getImageNewsData
+- (NSArray *)getTitlePhotoData
 {
-    return _imageNewsData;
+    return _titlePhotoData;
 }
 
-#pragma mark -unarchiveImageNewsData
-- (NSArray *)unarchiveImageNewsData
+- (NSArray *)unarchiveTitlePhotoData
 {
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[self getImageNewsDataFilePath]]) {
-        self.imageNewsData = [NSKeyedUnarchiver unarchiveObjectWithFile:[self getImageNewsDataFilePath]];
-        return _imageNewsData;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[self getTitlePhotoDataFilePath]]) {
+        self.titlePhotoData = [NSKeyedUnarchiver unarchiveObjectWithFile:[self getTitlePhotoDataFilePath]];
+        return _titlePhotoData;
     }
     return nil;
 }
@@ -68,13 +66,13 @@
 
 
 #pragma mark - Private Method
-#pragma mark -getImageNewsDataFilePath
-- (NSString *)getImageNewsDataFilePath
+
+- (NSString *)getTitlePhotoDataFilePath
 {
-    NSString *imageNewsDataFilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+    NSString *titlePhotoDataFilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                            NSUserDomainMask, YES) objectAtIndex:0];
-    imageNewsDataFilePath = [imageNewsDataFilePath stringByAppendingPathComponent:@"imageNewsData.plist"];
-    return imageNewsDataFilePath;
+    titlePhotoDataFilePath = [titlePhotoDataFilePath stringByAppendingPathComponent:@"titlePhotoData.plist"];
+    return titlePhotoDataFilePath;
 }
 
 @end

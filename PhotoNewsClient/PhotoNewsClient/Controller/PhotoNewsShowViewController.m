@@ -10,7 +10,7 @@
 #import "PhotoNewsShowViewController.h"
 #import "LibraryAPI.h"
 #import "HorizontalScrollView.h"
-#import "ImageNews.h"
+#import "TitlePhoto.h"
 #import "PhotoNewsShowView.h"
 #import "UIViewController+MMDrawerController.h"
 
@@ -67,13 +67,13 @@
 #pragma mark -reloadScrollView
 - (void)reloadScrollView:(NSNotification *)notification
 {
-    NSArray * allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
+    NSArray * titlePhotos = [[LibraryAPI sharedInstance] getTitlePhotoData];
     horizontalScrollView.fetchViewAtIndex = ^UIView *(NSInteger pageIndex, HorizontalScrollView *scrollView){
-        ImageNews *indexImageNews = [allImageNews objectAtIndex:pageIndex];
-        return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) newsImageUrl:indexImageNews.image_url newsContent:indexImageNews.content];
+        TitlePhoto *indexTitlePhoto = [titlePhotos objectAtIndex:pageIndex];
+        return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) newsImageUrl:indexTitlePhoto.url newsContent:indexTitlePhoto.title];
     };
     horizontalScrollView.totalPagesCount = ^NSInteger(void){
-        return allImageNews.count;
+        return titlePhotos.count;
     };
     [notification.userInfo[@"alertView"] show];
 }

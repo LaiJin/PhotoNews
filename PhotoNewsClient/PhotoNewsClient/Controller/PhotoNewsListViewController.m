@@ -10,14 +10,14 @@
 #import "UIViewController+MMDrawerController.h"
 #import "PullTableView.h"
 #import "LibraryAPI.h"
-#import "ImageNews.h"
+#import "TitlePhoto.h"
 #import "PhotoNewsTableVIewCell.h"
 
 @interface PhotoNewsListViewController ()<UITableViewDataSource, UITableViewDelegate ,PullTableViewDelegate>
 {
     PullTableView *photoNewsTableView;
-    NSArray *allImageNews;
-    NSInteger displayNewsCount;
+    NSArray *titlePhotos;
+    NSInteger displayTitleNewsCount;
     NSInteger count;
 }
 
@@ -37,7 +37,7 @@
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPhotoNewsTableView:)
                                                      name:@"requestComplete" object:nil];
-        displayNewsCount = kFirstShowNews;
+        displayTitleNewsCount = kFirstShowNews;
         photoNewsTableView = [[PullTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
         photoNewsTableView.pullDelegate = self;
         photoNewsTableView.delegate = self;
@@ -65,9 +65,9 @@
 
 - (void)reloadPhotoNewsTableView:(NSNotification *)notification
 {
-    allImageNews = [[LibraryAPI sharedInstance] getImageNewsData];
-    count = allImageNews.count - allImageNews.count % kFirstShowNews;
-    displayNewsCount = kFirstShowNews;
+    titlePhotos = [[LibraryAPI sharedInstance] getTitlePhotoData];
+    count = titlePhotos.count - titlePhotos.count % kFirstShowNews;
+    displayTitleNewsCount = kFirstShowNews;
     [photoNewsTableView reloadData];
     [notification.userInfo[@"alertView"] show];
     if(photoNewsTableView.pullTableIsRefreshing) {
@@ -79,12 +79,12 @@
 #pragma mark - Private Methods
 - (void)loadModePhotoNewsData
 {
-    if (allImageNews.count <= displayNewsCount)
-        displayNewsCount = allImageNews.count;
-    else if (count <= displayNewsCount)
-        displayNewsCount = allImageNews.count;
+    if (titlePhotos.count <= displayTitleNewsCount)
+        displayTitleNewsCount = titlePhotos.count;
+    else if (count <= displayTitleNewsCount)
+        displayTitleNewsCount = titlePhotos.count;
     else
-        displayNewsCount += kFirstShowNews;
+        displayTitleNewsCount += kFirstShowNews;
     [photoNewsTableView reloadData];
     [photoNewsTableView setPullTableIsLoadingMore:NO];
 }
@@ -97,7 +97,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return  allImageNews.count == 0 ? allImageNews.count : displayNewsCount;
+    return  titlePhotos.count == 0 ? titlePhotos.count : displayTitleNewsCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -112,9 +112,9 @@
     if (cell == nil) {
         cell = [[PhotoNewsTableVIewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:photoNewsCellIdentifier];
     }
-    ImageNews *indexImageNews = allImageNews[indexPath.section];
-    [cell setTextFiledContent:indexImageNews.content];
-    [cell setImageViewUrl:indexImageNews.image_url];
+    TitlePhoto *indexTitlePhoto = titlePhotos[indexPath.section];
+    [cell setTextFiledContent:indexTitlePhoto.title];
+    [cell setImageViewUrl:indexTitlePhoto.url];
     return cell;
 }
 

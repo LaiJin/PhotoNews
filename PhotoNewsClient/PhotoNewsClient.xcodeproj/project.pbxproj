@@ -29,7 +29,6 @@
 		9AFFEA2E18A9C4EE005D5574 /* PhotoNewsShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFFEA2D18A9C4EE005D5574 /* PhotoNewsShowView.m */; };
 		DD19538D18CAAFE100F771E5 /* TitlePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19538C18CAAFE100F771E5 /* TitlePhoto.m */; };
 		DD292EC518BF40D2005E2968 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD292EC418BF40D1005E2968 /* WebViewController.m */; };
-		DD30176F18AC62F4007FEE40 /* ImageNews.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30176E18AC62F4007FEE40 /* ImageNews.m */; };
 		DD30177218AC6BB3007FEE40 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177118AC6BB3007FEE40 /* HTTPClient.m */; };
 		DD30177518AC6BEA007FEE40 /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177418AC6BEA007FEE40 /* PersistenceManager.m */; };
 		DD30177818AC6C56007FEE40 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30177718AC6C56007FEE40 /* LibraryAPI.m */; };
@@ -84,8 +83,6 @@
 		DD19538C18CAAFE100F771E5 /* TitlePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitlePhoto.m; sourceTree = "<group>"; };
 		DD292EC318BF40D1005E2968 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		DD292EC418BF40D1005E2968 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		DD30176D18AC62F4007FEE40 /* ImageNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageNews.h; sourceTree = "<group>"; };
-		DD30176E18AC62F4007FEE40 /* ImageNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageNews.m; sourceTree = "<group>"; };
 		DD30177018AC6BB3007FEE40 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
 		DD30177118AC6BB3007FEE40 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		DD30177318AC6BEA007FEE40 /* PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
@@ -239,8 +236,6 @@
 		9AAF9BED18A9B3F10032EC74 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DD30176D18AC62F4007FEE40 /* ImageNews.h */,
-				DD30176E18AC62F4007FEE40 /* ImageNews.m */,
 				DD19538B18CAAFE100F771E5 /* TitlePhoto.h */,
 				DD19538C18CAAFE100F771E5 /* TitlePhoto.m */,
 			);
@@ -435,7 +430,6 @@
 				DD6ABAFD18ADC16F0072BBA5 /* HorizontalScrollView.m in Sources */,
 				9AFFEA2B18A9C325005D5574 /* PhotoNewsShowViewController.m in Sources */,
 				DD292EC518BF40D2005E2968 /* WebViewController.m in Sources */,
-				DD30176F18AC62F4007FEE40 /* ImageNews.m in Sources */,
 				DD30177518AC6BEA007FEE40 /* PersistenceManager.m in Sources */,
 				DD30177818AC6C56007FEE40 /* LibraryAPI.m in Sources */,
 				DD67257218B1BB4900155BAC /* PhotoNewsListViewController.m in Sources */,

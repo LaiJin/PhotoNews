@@ -15,6 +15,6 @@
 
 - (void)requestServer;
 
-- (NSArray *)getImageNewsData;
+- (NSArray *)getTitlePhotoData;
 
 @end

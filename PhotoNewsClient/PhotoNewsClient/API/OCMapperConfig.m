@@ -11,7 +11,7 @@
 #import "ObjectInstanceProvider.h"
 #import "CommonLoggingProvider.h"
 #import "ObjectMapper.h"
-#import "ImageNews.h"
+#import "TitlePhoto.h"
 
 @implementation OCMapperConfig
 
@@ -23,7 +23,7 @@
 	[[ObjectMapper sharedInstance] setInstanceProvider:instanceProvider];
 	[[ObjectMapper sharedInstance] setMappingProvider:inCodeMappingProvider];
 //    [[ObjectMapper sharedInstance] setLoggingProvider:commonLoggingProvider];
-    [inCodeMappingProvider mapFromDictionaryKey:@"id" toPropertyKey:@"imageNews_id"forClass:[ImageNews class]];
+    [inCodeMappingProvider mapFromDictionaryKey:@"id" toPropertyKey:@"title_photo_id"forClass:[TitlePhoto class]];
 }
 
 

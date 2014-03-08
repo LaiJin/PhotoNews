@@ -12,7 +12,7 @@
 #import "ASIHTTPRequest.h"
 #import "HTTPClient.h"
 #import "PersistenceManager.h"
-#import "ImageNews.h"
+#import "TitlePhoto.h"
 #import "OCMapper.h"
 
 
@@ -60,12 +60,12 @@
 //    NSLog(@"请检查网络是否连接!");
 }
 
-- (NSArray *)getImageNewsData
+- (NSArray *)getTitlePhotoData
 {
     if ([self isNetworkReachable] && isRequestSuccess) {
-        return [persistenceManager getImageNewsData];
+        return [persistenceManager getTitlePhotoData];
     }
-    return  [persistenceManager unarchiveImageNewsData];
+    return  [persistenceManager unarchiveTitlePhotoData];
 }
 
 
@@ -123,12 +123,12 @@
 {
     NSData  *responseData = [request responseData];
     NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
-    NSMutableArray *imageNewsData = [[NSMutableArray alloc] init];
-    for (NSMutableDictionary *imageNews in jsonArray) {
-        ImageNews *indexImageNews = [ImageNews objectFromDictionary:imageNews];
-        [imageNewsData addObject:indexImageNews];
+    NSMutableArray *titlePhotoData = [[NSMutableArray alloc] init];
+    for (NSMutableDictionary *titlePhoto in jsonArray) {
+        TitlePhoto *indexTitlePhoto = [TitlePhoto objectFromDictionary:titlePhoto];
+        [titlePhotoData addObject:indexTitlePhoto];
     }
-    [persistenceManager saveImageNewsData:imageNewsData];
+    [persistenceManager saveTitlePhotoData:titlePhotoData];
     isRequestSuccess = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"requestComplete" object:nil userInfo:nil];
 }
