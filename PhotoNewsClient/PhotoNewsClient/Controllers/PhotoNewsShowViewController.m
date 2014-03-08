@@ -39,7 +39,10 @@
         __weak typeof(self) weakSelf = self;
         horizontalScrollView.tapAction = ^(NSInteger viewIndex) {
             [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-             NSLog(@"%i", viewIndex);
+            NSNumber *index = [NSNumber numberWithInteger:viewIndex];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"viewTap"
+                                                                object:nil
+                                                              userInfo:@{@"viewIndex": index}];
         };
     }
     return self;

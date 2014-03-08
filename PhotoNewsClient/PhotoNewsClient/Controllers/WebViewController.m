@@ -7,10 +7,12 @@
 //
 
 #import "WebViewController.h"
+#import "LibraryAPI.h"
+#import "TitlePhoto.h"
 
 @interface WebViewController ()<UIWebViewDelegate>
 
-//@property (nonatomic, strong) UIWebView *webView;
+@property (strong, nonatomic) UIWebView *detailNewsWeb;
 
 @end
 
@@ -20,7 +22,12 @@
 {
     self = [super init];
     if (self) {
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(requestWeb:)
+                                                     name:@"viewTap"
+                                                   object:nil];
+        self.detailNewsWeb = [[UIWebView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:_detailNewsWeb];
     }
     return self;
 }
@@ -28,11 +35,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIWebView *imageNewsWebView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [imageNewsWebView setScalesPageToFit:NO];
-    [self.view addSubview:imageNewsWebView];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://192.168.1.102:3000"]];
-    [imageNewsWebView loadRequest:request];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -48,6 +50,17 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Notification Method
+- (void)requestWeb:(NSNotification *)notification
+{
+    NSArray *titlePhotos = [[LibraryAPI sharedInstance] getTitlePhotoData];
+    NSInteger index = [notification.userInfo[@"viewIndex"] integerValue];
+    TitlePhoto *indexTitlePhoto = titlePhotos[index];
+    NSString *url = [NSString stringWithFormat:@"http://192.168.1.102:3000/detail_photo_news?title_photo_id=%@", indexTitlePhoto.title_photo_id];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [self.detailNewsWeb loadRequest:request];
 }
 
 #pragma mark - UIWebViewDelegate
