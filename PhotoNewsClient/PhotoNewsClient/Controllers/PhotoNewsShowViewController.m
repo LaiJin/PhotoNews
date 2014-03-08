@@ -70,7 +70,7 @@
     NSArray * titlePhotos = [[LibraryAPI sharedInstance] getTitlePhotoData];
     horizontalScrollView.fetchViewAtIndex = ^UIView *(NSInteger pageIndex, HorizontalScrollView *scrollView){
         TitlePhoto *indexTitlePhoto = [titlePhotos objectAtIndex:pageIndex];
-        return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) newsImageUrl:indexTitlePhoto.url newsContent:indexTitlePhoto.title];
+        return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) imageUrl:indexTitlePhoto.url title:indexTitlePhoto.title synopsis:indexTitlePhoto.synopsis];
     };
     horizontalScrollView.totalPagesCount = ^NSInteger(void){
         return titlePhotos.count;

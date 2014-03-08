@@ -12,7 +12,7 @@
 @interface PhotoNewsShowView ()
 
 @property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) UITextView  *newsInfoText;
+@property (strong, nonatomic)  UITextView *newsInfoText;
 
 @end
 
@@ -30,19 +30,20 @@
 }
 
 #pragma mark - Public Method
-- (id)initWithFrame:(CGRect)frame newsImageUrl:(NSString *)newsImageUrl newsContent:(NSString *)newsContent
+- (id)initWithFrame:(CGRect)frame imageUrl:(NSString *)url title:(NSString *)title synopsis:(NSString *)synopsis
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setBackgroundColor:[UIColor whiteColor]];
         [self configureImageView];
-        [self configureTextFiled:newsContent];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"DownloadImageNotification" object:self userInfo:@{@"imageView":_imageView,@"imageUrl":newsImageUrl}];
+        [self configureNewsInfoTextWithTitle:title newsSynopsis:synopsis];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DownloadImageNotification" object:self userInfo:@{@"imageView":_imageView,@"imageUrl":url}];
     }
     return self;
 }
 
 #pragma mark - Private Methods
-#pragma mark -configureImageView
+#pragma mark -configureView
 - (void)configureImageView
 {
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / kDenominator )];
@@ -50,13 +51,14 @@
     [self addSubview:_imageView];
 }
 
-#pragma mark -configureTextFiled
-- (void)configureTextFiled:(NSString *)newsContent
+
+- (void)configureNewsInfoTextWithTitle:(NSString *)title newsSynopsis:(NSString *)sysopsis
 {
-    self.newsInfoText = [[UITextView alloc] initWithFrame:CGRectMake(0, self.frame.size.height / kDenominator, self.frame.size.width, self.frame.size.height / kDenominator)];
-    [self.newsInfoText setText:newsContent];
+    self.newsInfoText = [[UITextView alloc] initWithFrame:CGRectMake(0, (self.frame.size.height / kDenominator), self.frame.size.width, self.frame.size.height / kDenominator)];
+    NSString *text = [NSString stringWithFormat:@"\n  %@\n\n  %@", title, sysopsis];
+    [self.newsInfoText setText:text];
     [self.newsInfoText setFont:[UIFont systemFontOfSize:14.0]];
-//    [self.newsInfoText.layer setCornerRadius:10];控制圆角
+//    [self.newsInfoText.layer setCornerRadius:10];//控制圆角
     [self.newsInfoText setEditable:NO];
     [self.newsInfoText setSelectable:NO];
     [self addSubview:_newsInfoText];

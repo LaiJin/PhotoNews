@@ -10,6 +10,6 @@
 
 @interface PhotoNewsShowView : UIView
 
-- (id)initWithFrame:(CGRect)frame newsImageUrl:(NSString *)newsImageUrl newsContent:(NSString *)newsContent;
+- (id)initWithFrame:(CGRect)frame imageUrl:(NSString *)url title:(NSString *)title synopsis:(NSString *)synopsis;
 
 @end
