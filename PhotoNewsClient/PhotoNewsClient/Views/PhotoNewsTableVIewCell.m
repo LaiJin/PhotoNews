@@ -12,12 +12,12 @@
 @interface PhotoNewsTableVIewCell ()
 
 @property (strong, nonatomic) EGOImageView *imageView;
-@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) UILabel *newsLabel;
 
 @end
 
 @implementation PhotoNewsTableVIewCell
-@synthesize imageView =_imageView, label = _label;
+@synthesize imageView = _imageView, newsLabel = _newsLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -25,9 +25,10 @@
     if (self) {
         self.imageView = [[EGOImageView alloc] initWithPlaceholderImage: [UIImage imageNamed:@"loading.png"]];
         self.imageView.frame = CGRectMake(10.0, 10.0, 80.0, 100.0);
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 10.0, 200.0, 100.0)];
+        self.newsLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 10.0, 200.0, 100.0)];
+        [self.newsLabel setFont:[UIFont systemFontOfSize:14.0]];
         [self.contentView addSubview:self.imageView];
-        [self.contentView addSubview:self.label];
+        [self.contentView addSubview:self.newsLabel];
     }
     return self;
 }
@@ -38,17 +39,16 @@
 }
 
 #pragma mark - Public Methods
-#pragma mark -setImageViewUrl
 - (void)setImageViewUrl:(NSString *)url
 {
     [self.imageView setImageURL:[NSURL URLWithString:url]];
 }
 
-#pragma mark -setTextFiledContent
-- (void)setTextFiledContent:(NSString *)content
+- (void)configNewsLabelWithTitle:(NSString *)title synopsis:(NSString *)synopsis
 {
-    [self.label setNumberOfLines:3];
-    [self.label setText:content];
+    NSString *text = [NSString stringWithFormat:@"  %@\n\n  %@", title, synopsis];
+    [self.newsLabel setNumberOfLines:6];
+    [self.newsLabel setText:text];
 }
 
 @end

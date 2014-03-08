@@ -12,6 +12,6 @@
 
 - (void)setImageViewUrl:(NSString *)url;
 
-- (void)setTextFiledContent:(NSString *)content;
+- (void)configNewsLabelWithTitle:(NSString *)title synopsis:(NSString *)synopsis;
 
 @end

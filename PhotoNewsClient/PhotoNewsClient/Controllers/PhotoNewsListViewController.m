@@ -113,7 +113,7 @@
         cell = [[PhotoNewsTableVIewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:photoNewsCellIdentifier];
     }
     TitlePhoto *indexTitlePhoto = titlePhotos[indexPath.section];
-    [cell setTextFiledContent:indexTitlePhoto.title];
+    [cell configNewsLabelWithTitle:indexTitlePhoto.title synopsis:indexTitlePhoto.synopsis];
     [cell setImageViewUrl:indexTitlePhoto.url];
     return cell;
 }
