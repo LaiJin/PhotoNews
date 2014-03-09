@@ -17,7 +17,6 @@
 @end
 
 #define kDenominator 2.5
-#define kSpace 20.0
 
 @implementation PhotoNewsShowView
 
@@ -46,19 +45,17 @@
 #pragma mark -configureView
 - (void)configureImageView
 {
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,
-                                                                   0,
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,
                                                                    self.frame.size.width,
                                                                    self.frame.size.height / kDenominator )];
-    self.imageView.backgroundColor = [UIColor redColor];
     [self addSubview:_imageView];
 }
 
 
 - (void)configureNewsInfoTextWithTitle:(NSString *)title newsSynopsis:(NSString *)sysopsis
 {
-    self.newsInfoText = [[UITextView alloc] initWithFrame:CGRectMake(0, (self.frame.size.height / kDenominator), self.frame.size.width, self.frame.size.height / kDenominator)];
-    NSString *text = [NSString stringWithFormat:@"\n  %@\n\n  %@", title, sysopsis];
+    self.newsInfoText = [[UITextView alloc] initWithFrame:CGRectMake(15.0, self.frame.size.height / kDenominator, self.frame.size.width - 30.0, self.frame.size.height / kDenominator)];
+    NSString *text = [NSString stringWithFormat:@"\n%@\n\n%@", title, sysopsis];
     [self.newsInfoText setText:text];
     [self.newsInfoText setFont:[UIFont systemFontOfSize:14.0]];
 //    [self.newsInfoText.layer setCornerRadius:10];//控制圆角
