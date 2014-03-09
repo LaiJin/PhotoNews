@@ -15,8 +15,6 @@
 @property (nonatomic, copy) UIView *(^fetchViewAtIndex)(NSInteger viewIndex, HorizontalScrollView *scrollVivew);
 @property (nonatomic, copy) void (^tapAction)(NSInteger viewIndex);
 
-- (id)initWithFrame:(CGRect)frame barButtonTarget:(id)target;
-
 - (void)showIndexView:(NSInteger)index;
 
 @end

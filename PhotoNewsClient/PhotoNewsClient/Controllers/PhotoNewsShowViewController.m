@@ -39,7 +39,7 @@
         UIViewController *rightViewController = [[WebViewController alloc] init];
         [[LibraryAPI sharedInstance] requestServer];
         
-        horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
+        horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview: horizontalScrollView];
         
         __weak typeof(self) weakSelf = self;

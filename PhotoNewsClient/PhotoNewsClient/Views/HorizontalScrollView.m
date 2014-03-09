@@ -24,6 +24,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self configureScrollView];
     }
     return self;
 }
@@ -50,15 +51,6 @@
         [obj removeFromSuperview];
     }];
     [self addShownViewsOnScrollView];
-}
-
-- (id)initWithFrame:(CGRect)frame barButtonTarget:(id)target
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self configureScrollView];
-    }
-    return self;
 }
 
 #pragma mark - Private Methods
