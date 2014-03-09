@@ -5,7 +5,7 @@ class PhotoNewsController < ApplicationController
   def title_photo_news_list
     session[:title_photo_id] = nil
     if current_user
-      @title_photos = TitlePhoto.all
+      @title_photos = TitlePhoto.all.reverse
       return
     end
     redirect_to :login
