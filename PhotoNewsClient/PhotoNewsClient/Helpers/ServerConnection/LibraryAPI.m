@@ -57,7 +57,7 @@
         [httpClient getRequest:@"http://192.168.1.102:3000/title_photo_data.json" requestDelegateImplementor:self];
 //        return;
 //    }
-//    NSLog(@"请检查网络是否连接!");
+//    NSLog(@"请检查网络是否连接!");ZGW  
 }
 
 - (NSArray *)getTitlePhotoData

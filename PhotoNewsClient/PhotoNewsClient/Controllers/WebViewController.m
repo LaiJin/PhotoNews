@@ -27,6 +27,7 @@
                                                      name:@"viewTap"
                                                    object:nil];
         self.detailNewsWeb = [[UIWebView alloc] initWithFrame:self.view.bounds];
+        
         [self.view addSubview:_detailNewsWeb];
     }
     return self;

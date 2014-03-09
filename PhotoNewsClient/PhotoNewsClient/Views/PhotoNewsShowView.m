@@ -46,7 +46,10 @@
 #pragma mark -configureView
 - (void)configureImageView
 {
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / kDenominator )];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,
+                                                                   0,
+                                                                   self.frame.size.width,
+                                                                   self.frame.size.height / kDenominator )];
     self.imageView.backgroundColor = [UIColor redColor];
     [self addSubview:_imageView];
 }

@@ -26,7 +26,7 @@
 #define kFirstShowNews 6
 #define kRowHeight 120.0f
 #define kRowsInSection 1
-#define kHeightForHeader 15.0f
+#define kHeightForHeader 5.0f
 #define kHeightForFooter 5.0f
 
 @implementation PhotoNewsListViewController
@@ -35,14 +35,18 @@
 {
     self = [super init];
     if (self) {
+        [self.view setBackgroundColor:[UIColor whiteColor]];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPhotoNewsTableView:)
                                                      name:@"requestComplete" object:nil];
         displayTitleNewsCount = kFirstShowNews;
-        photoNewsTableView = [[PullTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
+        CGRect frame = CGRectMake(0, 20.0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+        photoNewsTableView = [[PullTableView alloc] initWithFrame:frame style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
         photoNewsTableView.pullDelegate = self;
         photoNewsTableView.delegate = self;
         photoNewsTableView.dataSource = self;
+        photoNewsTableView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:photoNewsTableView];
+        
     }
     return self;
 }
@@ -56,6 +60,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
 }
 
 - (void)didReceiveMemoryWarning

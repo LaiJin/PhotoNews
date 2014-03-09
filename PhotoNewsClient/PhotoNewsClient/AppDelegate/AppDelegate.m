@@ -10,7 +10,6 @@
 #import "OCMapperConfig.h"
 #import "PhotoNewsShowViewController.h"
 #import "PhotoNewsListViewController.h"
-#import "WebViewController.h"
 
 @implementation AppDelegate
 
@@ -18,6 +17,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
     [OCMapperConfig configure];
     [self configureDrawerController];
     self.window.rootViewController = self.drawerController;
@@ -27,11 +27,10 @@
 
 - (void)configureDrawerController
 {
-    UIViewController *rightViewController = [[PhotoNewsListViewController alloc] init];
-    UIViewController *centerViewController = [[PhotoNewsShowViewController alloc] init];
-    UIViewController *webViewController = [[WebViewController alloc] init];
-    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController: centerViewController leftDrawerViewController:webViewController rightDrawerViewController:rightViewController];
-    [self.drawerController setMaximumRightDrawerWidth:self.window.frame.size.width];
+    UIViewController *leftViewController = [[PhotoNewsListViewController alloc] init];
+    UIViewController *RootViewController = [[PhotoNewsShowViewController alloc] init];
+    UINavigationController *centerController = [[UINavigationController alloc] initWithRootViewController:RootViewController];
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController: centerController leftDrawerViewController:leftViewController];
     [self.drawerController setMaximumLeftDrawerWidth:self.window.frame.size.width];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];

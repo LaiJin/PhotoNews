@@ -7,12 +7,10 @@
 //
 
 #import "HorizontalScrollView.h"
-#import "MMDrawerBarButtonItem.h"
 
 @interface HorizontalScrollView ()
 
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) UIToolbar *toolbar;
 @property (assign, nonatomic) NSInteger totalViewsCount;
 
 @end
@@ -58,10 +56,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self configureToolBar:target];
         [self configureScrollView];
-//        UITapGestureRecognizer *tabGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
-//        [self.scrollView addGestureRecognizer:tabGestureRecognizer];
     }
     return self;
 }
@@ -72,13 +67,13 @@
 {
     if (!self.fetchViewAtIndex) return;
     NSInteger counter = 0;
-    self.scrollView.contentSize = CGSizeMake(_totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
+    self.scrollView.contentSize = CGSizeMake(_totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame) - 64.0);
     for (int i = 0 ; i < _totalViewsCount; i++) {
         UITapGestureRecognizer *tabGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
         
         UIView *view = self.fetchViewAtIndex(i, self);
         CGRect rightRect = view.frame;
-        rightRect.origin = CGPointMake(CGRectGetWidth(self.scrollView.frame) * (counter ++), 0);
+        rightRect.origin = CGPointMake(CGRectGetWidth(self.scrollView.frame) * (counter ++), -64.0);
         view.frame = rightRect;
         view.tag = i;
         [view addGestureRecognizer:tabGestureRecognizer];
@@ -88,18 +83,7 @@
 
 - (void)showIndexView:(NSInteger)index
 {
-    [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame) * index, 0) animated:NO];
-}
-
-#pragma mark -configureToolBar
-- (void)configureToolBar:(id)target
-{
-    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, kToolbarHeight)];
-    MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:target action:@selector(rightDrawerButtonPress)];
-    UIBarButtonItem *spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    NSArray *items = [[NSArray alloc] initWithObjects:spaceButtonItem, rightDrawerButton, nil];
-    [_toolbar setItems: items];
-    [self addSubview:_toolbar];
+    [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame) * index, -64.0) animated:NO];
 }
 
 #pragma mark -configureScrollView
@@ -115,10 +99,6 @@
 
 - (void)scrollViewTapped:(UITapGestureRecognizer *)gesture
 {
-//    CGPoint location = [gesture locationInView:gesture.view];
-//    NSLog(@"%f", location.x);
-//    NSLog(@"%f", location.y);
-//    NSLog(@"%i", gesture.view.tag);
     if (self.tapAction) {
         self.tapAction(gesture.view.tag);
     }

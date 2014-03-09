@@ -25,6 +25,7 @@
 		9AAF9BDD18A8DF260032EC74 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AAF9BDB18A8DF260032EC74 /* InfoPlist.strings */; };
 		9AAF9BE018A8DF260032EC74 /* PhotoNewsClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF9BDF18A8DF260032EC74 /* PhotoNewsClientTests.m */; };
 		9AAF9BEF18A9B3F10032EC74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF9BEB18A9B3F10032EC74 /* AppDelegate.m */; };
+		DD091AD818CC4C1A00FF6006 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1953CB18CACD9300F771E5 /* placeholder.png */; };
 		DD1953A918CAC9D800F771E5 /* PhotoNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19539A18CAC9D800F771E5 /* PhotoNewsListViewController.m */; };
 		DD1953AA18CAC9D800F771E5 /* PhotoNewsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19539C18CAC9D800F771E5 /* PhotoNewsShowViewController.m */; };
 		DD1953AB18CAC9D800F771E5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD19539E18CAC9D800F771E5 /* WebViewController.m */; };
@@ -36,8 +37,6 @@
 		DD1953C218CACCB500F771E5 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953BD18CACCB500F771E5 /* LibraryAPI.m */; };
 		DD1953C318CACCB500F771E5 /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953BF18CACCB500F771E5 /* PersistenceManager.m */; };
 		DD1953C718CACCED00F771E5 /* OCMapperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1953C618CACCED00F771E5 /* OCMapperConfig.m */; };
-		DD1953CC18CACD9300F771E5 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1953CA18CACD9300F771E5 /* loading.png */; };
-		DD1953CD18CACD9300F771E5 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1953CB18CACD9300F771E5 /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -376,8 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1953CC18CACD9300F771E5 /* loading.png in Resources */,
-				DD1953CD18CACD9300F771E5 /* placeholder.png in Resources */,
+				DD091AD818CC4C1A00FF6006 /* placeholder.png in Resources */,
 				9AAF9BBF18A8DF230032EC74 /* InfoPlist.strings in Resources */,
 				9AAF9BC718A8DF230032EC74 /* Default.png in Resources */,
 				9AAF9BC918A8DF230032EC74 /* Default@2x.png in Resources */,

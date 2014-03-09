@@ -13,6 +13,8 @@
 #import "TitlePhoto.h"
 #import "PhotoNewsShowView.h"
 #import "UIViewController+MMDrawerController.h"
+#import "WebViewController.h"
+#import "MMDrawerBarButtonItem.h"
 
 @interface PhotoNewsShowViewController ()
 {
@@ -31,6 +33,10 @@
                                                      name:@"requestComplete" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSelectView:)
                                                      name:@"showSelectView" object:nil];
+        MMDrawerBarButtonItem *leftButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftButtonPress)];
+        self.navigationItem.leftBarButtonItem = leftButton;
+        
+        UIViewController *rightViewController = [[WebViewController alloc] init];
         [[LibraryAPI sharedInstance] requestServer];
         
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds barButtonTarget:self];
@@ -38,7 +44,8 @@
         
         __weak typeof(self) weakSelf = self;
         horizontalScrollView.tapAction = ^(NSInteger viewIndex) {
-            [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+            [weakSelf.navigationController pushViewController:rightViewController animated:YES];
+            
             NSNumber *index = [NSNumber numberWithInteger:viewIndex];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"viewTap"
                                                                 object:nil
@@ -60,7 +67,6 @@
     [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -71,6 +77,7 @@
 - (void)reloadScrollView:(NSNotification *)notification
 {
     NSArray * titlePhotos = [[LibraryAPI sharedInstance] getTitlePhotoData];
+    
     horizontalScrollView.fetchViewAtIndex = ^UIView *(NSInteger pageIndex, HorizontalScrollView *scrollView){
         TitlePhoto *indexTitlePhoto = [titlePhotos objectAtIndex:pageIndex];
         return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) imageUrl:indexTitlePhoto.url title:indexTitlePhoto.title synopsis:indexTitlePhoto.synopsis];
@@ -78,6 +85,7 @@
     horizontalScrollView.totalPagesCount = ^NSInteger(void){
         return titlePhotos.count;
     };
+    
     [notification.userInfo[@"alertView"] show];
 }
 
@@ -86,10 +94,10 @@
     [horizontalScrollView showIndexView: [notification.userInfo[@"index"] integerValue]];
 }
 
-#pragma mark -rightMenuButtonAction
-- (void)rightDrawerButtonPress
+#pragma mark -leftMenuButtonAction
+- (void)leftButtonPress
 {
-    [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 #pragma mark - Dealloc

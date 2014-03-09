@@ -24,7 +24,8 @@
 - (UIImage*)downloadImage:(NSString*)url
 {
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-    return [UIImage imageWithData:data];
+    UIImage *image = [UIImage imageWithData:data];
+    return image;
 }
 
 @end
