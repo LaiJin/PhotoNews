@@ -1,6 +1,6 @@
 class PhotoNewsController < ApplicationController
 
-  SERVER_URL = 'http://0.0.0.0:3000'
+  SERVER_URL = 'http://192.168.1.102:3000'
 
   def title_photo_news_list
     session[:title_photo_id] = nil
@@ -16,7 +16,7 @@ class PhotoNewsController < ApplicationController
     if params[:title_photo_id]
       string = request.user_agent
       user_agent = UserAgent.parse(string)
-      @is_request_by_iphone = user_agent.platform == 'iPhone'
+      @is_request_by_iphone = user_agent.platform == 'iPhone' || user_agent.platform == 'iPod touch'
       @detail_photos = TitlePhoto.find(params[:title_photo_id]).detail_photos
       return
     end
