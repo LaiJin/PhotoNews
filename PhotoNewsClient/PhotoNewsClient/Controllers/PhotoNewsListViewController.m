@@ -39,14 +39,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadPhotoNewsTableView:)
                                                      name:@"requestComplete" object:nil];
         displayTitleNewsCount = kFirstShowNews;
-        CGRect frame = CGRectMake(0, 20.0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-        photoNewsTableView = [[PullTableView alloc] initWithFrame:frame style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
-        photoNewsTableView.pullDelegate = self;
-        photoNewsTableView.delegate = self;
-        photoNewsTableView.dataSource = self;
-        photoNewsTableView.backgroundColor = [UIColor whiteColor];
-        [self.view addSubview:photoNewsTableView];
-        
+        [self addTableView];
     }
     return self;
 }
@@ -86,6 +79,18 @@
 }
 
 #pragma mark - Private Methods
+
+- (void)addTableView
+{
+    CGRect frame = CGRectMake(0, 20.0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    photoNewsTableView = [[PullTableView alloc] initWithFrame:frame style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
+    photoNewsTableView.pullDelegate = self;
+    photoNewsTableView.delegate = self;
+    photoNewsTableView.dataSource = self;
+    photoNewsTableView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:photoNewsTableView];
+}
+
 - (void)loadModePhotoNewsData
 {
     if (titlePhotos.count <= displayTitleNewsCount)

@@ -66,7 +66,7 @@
 }
 
 #pragma mark - Private Methods
-#pragma mark -reloadScrollView
+
 - (void)reloadScrollView:(NSNotification *)notification
 {
     NSArray * titlePhotos = [[LibraryAPI sharedInstance] getTitlePhotoData];
@@ -87,6 +87,7 @@
 {
     [horizontalScrollView showIndexView: [notification.userInfo[@"index"] integerValue]];
 }
+
 
 - (void)tapAction:(UIViewController *)rightViewController
 {
