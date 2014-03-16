@@ -27,7 +27,7 @@
                                                      name:@"viewTap"
                                                    object:nil];
         self.detailNewsWeb = [[UIWebView alloc] initWithFrame:self.view.bounds];
-        
+        [self.detailNewsWeb setDelegate:self];
         [self.view addSubview:_detailNewsWeb];
     }
     return self;
@@ -77,7 +77,15 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"请求失败" message:@"请求服务器失败!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    [alertView show];
 }
+
+#pragma mark - Dealloc
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"viewTap" object:nil];
+}
+
 
 @end

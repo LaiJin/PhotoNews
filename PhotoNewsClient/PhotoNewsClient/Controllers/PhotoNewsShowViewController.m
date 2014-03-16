@@ -33,24 +33,17 @@
                                                      name:@"requestComplete" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSelectView:)
                                                      name:@"showSelectView" object:nil];
+        
         MMDrawerBarButtonItem *leftButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftButtonPress)];
         self.navigationItem.leftBarButtonItem = leftButton;
-        
-        UIViewController *rightViewController = [[WebViewController alloc] init];
+
         [[LibraryAPI sharedInstance] requestServer];
         
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview: horizontalScrollView];
         
-        __weak typeof(self) weakSelf = self;
-        horizontalScrollView.tapAction = ^(NSInteger viewIndex) {
-            [weakSelf.navigationController pushViewController:rightViewController animated:YES];
-            
-            NSNumber *index = [NSNumber numberWithInteger:viewIndex];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"viewTap"
-                                                                object:nil
-                                                              userInfo:@{@"viewIndex": index}];
-        };
+        UIViewController *rightViewController = [[WebViewController alloc] init];
+        [self tapAction:rightViewController];
     }
     return self;
 }
@@ -82,6 +75,7 @@
         TitlePhoto *indexTitlePhoto = [titlePhotos objectAtIndex:pageIndex];
         return [[PhotoNewsShowView alloc] initWithFrame:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height) imageUrl:indexTitlePhoto.url title:indexTitlePhoto.title synopsis:indexTitlePhoto.synopsis];
     };
+    
     horizontalScrollView.totalPagesCount = ^NSInteger(void){
         return titlePhotos.count;
     };
@@ -92,6 +86,19 @@
 - (void)showSelectView:(NSNotification *)notification
 {
     [horizontalScrollView showIndexView: [notification.userInfo[@"index"] integerValue]];
+}
+
+- (void)tapAction:(UIViewController *)rightViewController
+{
+    __weak typeof(self) weakSelf = self;
+    horizontalScrollView.tapAction = ^(NSInteger viewIndex) {
+        [weakSelf.navigationController pushViewController:rightViewController animated:YES];
+        
+        NSNumber *index = [NSNumber numberWithInteger:viewIndex];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"viewTap"
+                                                            object:nil
+                                                          userInfo:@{@"viewIndex": index}];
+    };
 }
 
 #pragma mark -leftMenuButtonAction
