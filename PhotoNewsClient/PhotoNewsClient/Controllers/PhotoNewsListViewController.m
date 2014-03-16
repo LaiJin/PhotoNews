@@ -70,8 +70,11 @@
     titlePhotos = [[LibraryAPI sharedInstance] getTitlePhotoData];
     count = titlePhotos.count - titlePhotos.count % kFirstShowNews;
     displayTitleNewsCount = kFirstShowNews;
+    
     [photoNewsTableView reloadData];
+    
     [notification.userInfo[@"alertView"] show];
+    
     if(photoNewsTableView.pullTableIsRefreshing) {
         [photoNewsTableView setPullLastRefreshDate:[NSDate date]];
         [photoNewsTableView setPullTableIsRefreshing:NO];
@@ -83,7 +86,10 @@
 - (void)addTableView
 {
     CGRect frame = CGRectMake(0, 20.0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-    photoNewsTableView = [[PullTableView alloc] initWithFrame:frame style:UITableViewStyleGrouped pullDownRefresh:YES pullUpLoadMore:YES];
+    photoNewsTableView = [[PullTableView alloc] initWithFrame:frame
+                                                        style:UITableViewStyleGrouped
+                                              pullDownRefresh:YES
+                                               pullUpLoadMore:YES];
     photoNewsTableView.pullDelegate = self;
     photoNewsTableView.delegate = self;
     photoNewsTableView.dataSource = self;
@@ -93,14 +99,22 @@
 
 - (void)loadModePhotoNewsData
 {
-    if (titlePhotos.count <= displayTitleNewsCount)
-        displayTitleNewsCount = titlePhotos.count;
-    else if (count <= displayTitleNewsCount)
-        displayTitleNewsCount = titlePhotos.count;
-    else
-        displayTitleNewsCount += kFirstShowNews;
+    [self calculateDisplayTitleNewsCount];
     [photoNewsTableView reloadData];
     [photoNewsTableView setPullTableIsLoadingMore:NO];
+}
+
+- (void)calculateDisplayTitleNewsCount
+{
+    if (titlePhotos.count <= displayTitleNewsCount) {
+        displayTitleNewsCount = titlePhotos.count;
+        return;
+    }
+    if (count <= displayTitleNewsCount) {
+        displayTitleNewsCount = titlePhotos.count;
+        return;
+    }
+    displayTitleNewsCount += kFirstShowNews;
 }
 
 - (void)refreshTableView
