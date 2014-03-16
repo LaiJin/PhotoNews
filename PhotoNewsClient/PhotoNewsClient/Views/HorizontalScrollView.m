@@ -15,7 +15,7 @@
 
 @end
 
-#define kToolbarHeight 64.0
+#define kNavBarHeight 64.0
 
 @implementation HorizontalScrollView
 
@@ -59,13 +59,13 @@
 {
     if (!self.fetchViewAtIndex) return;
     NSInteger counter = 0;
-    self.scrollView.contentSize = CGSizeMake(_totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame) - 64.0);
+    self.scrollView.contentSize = CGSizeMake(_totalViewsCount * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
     for (int i = 0 ; i < _totalViewsCount; i++) {
         UITapGestureRecognizer *tabGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
         
         UIView *view = self.fetchViewAtIndex(i, self);
         CGRect rightRect = view.frame;
-        rightRect.origin = CGPointMake(CGRectGetWidth(self.scrollView.frame) * (counter ++), -64.0);
+        rightRect.origin = CGPointMake(CGRectGetWidth(self.scrollView.frame) * (counter ++), 0);
         view.frame = rightRect;
         view.tag = i;
         [view addGestureRecognizer:tabGestureRecognizer];
@@ -75,13 +75,13 @@
 
 - (void)showIndexView:(NSInteger)index
 {
-    [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame) * index, -64.0) animated:NO];
+    [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame) * index, 0) animated:NO];
 }
 
 #pragma mark -configureScrollView
 - (void)configureScrollView
 {
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kToolbarHeight, self.bounds.size.width, self.bounds.size.height - kToolbarHeight)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kNavBarHeight, self.bounds.size.width, self.bounds.size.height - kNavBarHeight)];
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator   = NO;
     self.scrollView.backgroundColor = [UIColor grayColor];

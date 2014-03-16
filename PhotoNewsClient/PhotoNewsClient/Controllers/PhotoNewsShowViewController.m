@@ -39,6 +39,7 @@
 
         [[LibraryAPI sharedInstance] requestServer];
         
+        self.automaticallyAdjustsScrollViewInsets = NO;
         horizontalScrollView = [[HorizontalScrollView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview: horizontalScrollView];
         
